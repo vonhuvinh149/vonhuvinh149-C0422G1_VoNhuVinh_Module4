@@ -1,10 +1,10 @@
 package com.codegym.service.mpl;
 
-import com.codegym.service.ICalculator;
+import com.codegym.service.ICalculatorService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CalculatorService implements ICalculator {
+public class CalculatorService implements ICalculatorService {
 
     @Override
     public String result(double number1, double number2, String str) {

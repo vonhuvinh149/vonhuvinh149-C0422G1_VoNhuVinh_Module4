@@ -1,6 +1,6 @@
 package com.codegym.controller;
 
-import com.codegym.service.ICalculator;
+import com.codegym.service.ICalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CalculatorController {
 
     @Autowired
-    private ICalculator calculator;
+    private ICalculatorService calculator;
 
     @GetMapping("/")
     public String home() {

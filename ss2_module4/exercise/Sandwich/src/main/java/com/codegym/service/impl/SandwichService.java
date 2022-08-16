@@ -1,17 +1,17 @@
 package com.codegym.service.impl;
 
-import com.codegym.repository.IRepository;
-import com.codegym.service.ISandwich;
+import com.codegym.repository.ISandwichRepository;
+import com.codegym.service.ISandwichService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class SandwichService implements ISandwich {
+public class SandwichService implements ISandwichService {
 
     @Autowired
-    private IRepository repository;
+    private ISandwichRepository repository;
 
     @Override
     public List<String> findAll() {
