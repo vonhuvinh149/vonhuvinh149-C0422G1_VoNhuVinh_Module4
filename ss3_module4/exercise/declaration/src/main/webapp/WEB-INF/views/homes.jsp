@@ -14,9 +14,9 @@
 <body>
 <form:form modelAttribute="declaration" action="">
     <table>
-        <tr>Ho Va Ten <br>
-            <td colspan="3"><form:input path="name">
-            </form:input></td>
+        <tr>
+            ho va ten <br>
+            <form:input path="name"></form:input>
         </tr>
         <tr>
             <td>
@@ -29,16 +29,17 @@
                 <form:select path="gender" items="${gender}">
                 </form:select>
             </td>
+
             <td>Quoc tich <br>
                 <form:select path="nationality" items="${nationality}">
                 </form:select>
             </td>
         </tr>
         <tr>
-<%--            <td colspan="3">số hộ chiếu hoặc chứng minh nhân dân(*)<br>--%>
-<%--                <form:input path="id">--%>
-<%--                </form:input>--%>
-<%--            </td>--%>
+                <%--            <td colspan="3">số hộ chiếu hoặc chứng minh nhân dân(*)<br>--%>
+                <%--                <form:input path="id">--%>
+                <%--                </form:input>--%>
+                <%--            </td>--%>
         </tr>
     </table>
 </form:form>

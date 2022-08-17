@@ -19,6 +19,6 @@ public class DeclarationController {
         model.addAttribute("birth",declarationService.yearOfBirth());
         model.addAttribute("gender",declarationService.gender());
         model.addAttribute("nationality",declarationService.nationality());
-        return "/homes";
+        return "homes";
     }
 }
