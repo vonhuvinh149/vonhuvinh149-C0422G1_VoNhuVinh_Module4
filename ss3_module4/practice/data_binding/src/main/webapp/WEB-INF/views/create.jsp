@@ -6,7 +6,7 @@
 </head>
 <body>
 <h3>Welcome, Enter The Employee Details</h3>
-<form:form method="POST" action="addEmployee" modelAttribute="employee">
+<form:form method="POST" action="/addEmployee" modelAttribute="employee">
     <table>
         <tr>
             <td><form:label path="id">Employee ID: </form:label></td>

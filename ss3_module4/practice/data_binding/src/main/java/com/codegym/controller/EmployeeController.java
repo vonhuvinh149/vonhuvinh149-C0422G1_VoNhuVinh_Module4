@@ -14,7 +14,7 @@ public class EmployeeController {
     @RequestMapping(value = "showForm", method = RequestMethod.GET)
     public String showForm(ModelMap model) {
         model.addAttribute("employee", new Employee());
-        return "employee/create";
+        return "/create";
     }
 
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
