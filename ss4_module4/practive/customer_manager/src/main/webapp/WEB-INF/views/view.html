@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a th:href="@{/customer/}"></a>
+</div>
+<div>
+    <p>Name:
+        <span th:text="${customer.name}"></span>
+    </p>
+    <p>Email:
+        <span th:text="${customer.email}"></span>
+    </p>
+    <p>Address:
+        <span th:text="${customer.address}"></span>
+</div>
+</body>
+</html>

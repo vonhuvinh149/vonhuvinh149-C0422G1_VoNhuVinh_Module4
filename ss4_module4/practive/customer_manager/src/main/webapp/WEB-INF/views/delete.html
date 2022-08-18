@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a th:href="@{/customer/}"></a>
+</div>
+<div>
+    <form action="/customer/remove" method="post" th:object="${customer}">
+        <input type="text" th:field="*{id}">
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}"/>
+        <label for="email">Email</label>
+        <input id="email" type="text" th:field="*{email}"/>
+        <label for="address">address</label>
+        <input id="address" type="text" th:field="*{address}"/>
+        <button type="submit">remove</button>
+    </form>
+</div>
+</body>
+</html>

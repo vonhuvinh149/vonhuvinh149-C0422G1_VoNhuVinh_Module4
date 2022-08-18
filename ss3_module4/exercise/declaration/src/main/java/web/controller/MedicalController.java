@@ -62,8 +62,8 @@ public class MedicalController {
         model.addAttribute("year", listYear);
         model.addAttribute("gender", listGender);
         model.addAttribute("nation", listNation);
-        Medical medical1 = this.iMedicalService.find(id);
-        model.addAttribute("medical", medical1);
+        Medical medical = this.iMedicalService.find(id);
+        model.addAttribute("medical", medical);
         return "/edit";
     }
 

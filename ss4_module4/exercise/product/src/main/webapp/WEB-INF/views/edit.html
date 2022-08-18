@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/product/update" method="post" th:object="${product}">
+    <div>id: <p><input type="text" readonly th:field="*{id}"></p></div>
+    <div>Name: <p><input type="text" th:field="*{name}"></p></div>
+    <div>Price: <p><input type="text" th:field="*{price}"></p></div>
+    <div>describe:<p><input type="text" th:field="*{describe}"></p></div>
+    <div>producer:<p><input type="text" th:field="*{producer}"></p></div>
+    <button type="submit">remove</button>
+</form>
+</body>
+</html>

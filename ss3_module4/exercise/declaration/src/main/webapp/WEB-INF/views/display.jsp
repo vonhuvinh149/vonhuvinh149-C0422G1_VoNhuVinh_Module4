@@ -13,7 +13,7 @@
   <title>Title</title>
 </head>
 <body>
-<table border="2px">
+<table border="1">
   <tr>
     <th>Name</th>
     <th>Year</th>
