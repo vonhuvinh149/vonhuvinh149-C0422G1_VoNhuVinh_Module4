@@ -34,8 +34,8 @@
       <td>${list.id}</td>
       <td>${list.nation}</td>
       <td>${list.travel} ,${list.travelNumber},${list.travelSeats}</td>
-      <td>${list.dayStart}/${list.monthStart}/${list.yearStart}</td>
-      <td>${list.dayEnd}/${list.monthEnd}/${list.yearEnd}</td>
+      <td>${list.dayStart}-${list.monthStart}-${list.yearStart}</td>
+      <td>${list.dayEnd}-${list.monthEnd}-${list.yearEnd}</td>
       <td>${list.note}</td>
       <td><a href="/edits/${list.id}">edit</a></td>
     </tr>

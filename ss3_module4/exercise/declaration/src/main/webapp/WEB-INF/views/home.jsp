@@ -17,28 +17,28 @@
         <h1>KHAI BAO Y TE </h1>
         <form:form action="/create" modelAttribute="medical" method="get">
             <div>
-                <label for="exampleInputEmail">HO VA TEN </label>
+                <label for="exampleInputEmail">Họ và tên</label>
                 <form:input path="name" type="text" id="exampleInputEmail"
                             aria-describedby="emailHelp"/>
             </div>
             <div>
                 <div>
-                    <label for="exampleInputEmail1">NAM SINH </label>
+                    <label for="exampleInputEmail1">Năm sinh</label>
                     <form:select path="age" items="${year}" id="exampleInputEmail1"
                                  aria-describedby="emailHelp"/>
                 </div>
                 <div>
-                    <label for="exampleInputEmail2">GIOI TINH </label>
+                    <label for="exampleInputEmail2">Giới tính</label>
                     <form:select path="gender" items="${gender}" id="exampleInputEmail2"
                                  aria-describedby="emailHelp"/>
                 </div>
                 <div>
-                    <label for="exampleInputEmail3" class="form-label"> QUOC TICH </label>
+                    <label for="exampleInputEmail3" class="form-label">Quốc tịch</label>
                     <form:select path="nation" items="${nation}" id="exampleInputEmail3"
                                  aria-describedby="emailHelp"/>
                 </div>
                 <div>
-                    <label for="example">SO CMND (HO CHIEU) </label>
+                    <label for="example">CCCD/CMND</label>
                     <form:input path="id" type="number" id="example"
                                 aria-describedby="emailHelp"/>
                 </div>

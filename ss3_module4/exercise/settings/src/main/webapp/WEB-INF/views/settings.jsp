@@ -24,20 +24,19 @@
         <tr>
             <td>Page Size</td>
             <td>Show
-                <form:select path="pageSize" items="${pageSize}"></form:select>
+                <form:select path="pageSize" items="${pageSize}"/>
                 email per page
             </td>
         </tr>
         <tr>
             <td>Spam filter</td>
             <td>
-                <form:checkbox path="spamsFilter" value="enable span filter"></form:checkbox>enable span filter
+                <form:checkbox path="spamsFilter" value="enable span filter"/>enable span filter
             </td>
         </tr>
         <tr>
             <td>signature</td>
-            <td><form:textarea path="signature"></form:textarea></td>
-
+            <td><form:textarea path="signature"/></td>
         </tr>
         <tr>
             <td></td>
@@ -47,7 +46,6 @@
             </td>
         </tr>
     </table>
-
 </form:form>
 </body>
 </html>

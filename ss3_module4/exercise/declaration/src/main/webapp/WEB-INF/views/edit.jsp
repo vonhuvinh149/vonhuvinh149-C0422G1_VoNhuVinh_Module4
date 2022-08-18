@@ -16,36 +16,36 @@
     <div>
         <form:form action="/update" modelAttribute="medical" method="post">
             <div>
-                <label for="exampleInputEmail">HO VA TEN </label>
+                <label for="exampleInputEmail">Họ và tên</label>
                 <form:input path="name" type="text" class="form-control" id="exampleInputEmail"
                             aria-describedby="emailHelp"/>
             </div>
             <div>
                 <div>
-                    <label for="exampleInputEmail1">NAM SINH </label>
+                    <label for="exampleInputEmail1">Năm sinh</label>
                     <form:select path="age" items="${year}" id="exampleInputEmail1"
                                  aria-describedby="emailHelp"/>
                 </div>
                 <div>
-                    <label for="exampleInputEmail2">GIOI TINH </label>
+                    <label for="exampleInputEmail2">Giới tính</label>
                     <form:select path="gender" items="${gender}" class="form-control" id="exampleInputEmail2"
                                  aria-describedby="emailHelp"/>
                 </div>
                 <div>
-                    <label for="exampleInputEmail3"> QUOC TICH </label>
+                    <label for="exampleInputEmail3">Quốc tịch</label>
                     <form:select path="nation" items="${nation}" class="form-control" id="exampleInputEmail3"
                                  aria-describedby="emailHelp"/>
                 </div>
                 <div>
-                    <label for="example" class="form-label">SO CMND (HO CHIEU) </label>
+                    <label for="example" class="form-label">CCCD/CMND</label>
                     <form:input path="id" type="number" id="example"
                                 aria-describedby="emailHelp"/>
                 </div>
             </div>
             <div>
                 <div>
-                    <h5>Thong tin di chuyen</h5>
-                    <p><form:radiobutton path="travel" value="May bay"/> May bay </p>
+                    <h5>Thông tin di chuyển</h5>
+                    <p><form:radiobutton path="travel" value="May bay"/> tàu bay </p>
                     <form:radiobutton cssClass="ms-4" path="travel" value="Tau thuyen"/>
                     <form:radiobutton cssClass="ms-4" path="travel" value="Oto"/>
                     <form:radiobutton cssClass="ms-4" path="travel" value="khac"/>
@@ -53,7 +53,7 @@
             </div>
             <div>
                 <div>
-                    <label for="ex">SO HIEU PHUONG TIEN </label>
+                    <label for="ex">số hiệu phương tiện </label>
                     <form:input path="travelNumber" type="text" id="ex"
                                 aria-describedby="emailHelp"/>
                 </div>
