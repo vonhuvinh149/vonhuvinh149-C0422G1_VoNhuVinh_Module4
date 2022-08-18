@@ -7,6 +7,10 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+<form action="/product/search">
+    <input type="text" name="name">
+    <button type="submit">search</button>
+</form>
 <table border="1" cellpadding="10">
     <tr>
         <td>id</td>
@@ -23,11 +27,11 @@
         <td th:text="${row.describe}"></td>
         <td th:text="${row.producer}"></td>
         <td><a th:href="@{/product/{id}/edit(id=${row.id})}">edit</a></td>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    th:attr="onclick=|showInfoProduct('${row.id}', '${row.name}')|">
-                remove
-            </button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                th:attr="onclick=|showInfoProduct('${row.id}', '${row.name}')|">
+            remove
+        </button>
         </td>
         <td><a th:href="@{/product/{id}/view}">view</a></td>
     </tr>
