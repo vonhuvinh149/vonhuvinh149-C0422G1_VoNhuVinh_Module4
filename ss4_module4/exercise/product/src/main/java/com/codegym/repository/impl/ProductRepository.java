@@ -51,14 +51,4 @@ public class ProductRepository implements IProductRepository {
         products.remove(id);
     }
 
-    @Override
-    public List<Product> searchProductByName(String searchName) {
-        List<Product> product= new ArrayList<>();
-        for (Integer i : products.keySet()) {
-            if (products.get(i).getName().toLowerCase().contains(searchName.toLowerCase())) {
-                product.add(products.get(i));
-            }
-        }
-        return product;
-    }
 }

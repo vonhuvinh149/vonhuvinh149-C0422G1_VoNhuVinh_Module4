@@ -17,10 +17,9 @@ public class ProductController {
 
     @Autowired
     private IProductService productService;
-
     @GetMapping("")
-    public String home(Model model) {
-        List<Product> productList = productService.findAll();
+    public String home(@RequestParam (required = false, defaultValue = "") String name,Model model) {
+        List<Product> productList = productService.findAll(name);
         model.addAttribute("product", productList);
         return "/home";
     }
@@ -38,7 +37,7 @@ public class ProductController {
         return "redirect:/product/";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/{id}/edit")
     public String edit(@PathVariable int id, Model model) {
         model.addAttribute("product", this.productService.findById(id));
         return "/edit";
@@ -50,23 +49,11 @@ public class ProductController {
         return "redirect:/product/";
     }
 
-    @GetMapping("/{id}/delete")
-    public String delete(@PathVariable int id, Model model) {
-        model.addAttribute("product", productService.findById(id));
-        return "delete";
-    }
 
     @PostMapping("/remove")
-    public String remove(Product product, RedirectAttributes redirectAttributes) {
-        productService.remove(product.getId());
+    public String remove(@RequestParam int remove, RedirectAttributes redirectAttributes) {
+        productService.remove(remove);
         redirectAttributes.addAttribute("message", "xoa thanh cong");
         return "redirect:/product/";
-    }
-
-    @GetMapping("/search")
-    public String searchProductByName(@RequestParam String name, Model model) {
-        List<Product> products = this.productService.searchProductByName(name);
-        model.addAttribute("product", products);
-        return "/home";
     }
 }
