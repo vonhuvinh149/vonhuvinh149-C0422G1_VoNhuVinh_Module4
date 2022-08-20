@@ -1,0 +1,81 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="text-center p-3">
+        <h3>Music List</h3>
+        <a th:href="@{/music/showCreate}" class="btn btn-primary">Create</a>
+    </div>
+    <table class="table table-success table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Listen Name</th>
+            <th>Artist</th>
+            <th>Category</th>
+            <th>PathFile</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${listenForm}">
+            <td th:text="${row.id}"></td>
+            <td th:text="${row.musicName}"></td>
+            <td th:text="${row.artist}"></td>
+            <td th:text="${row.category}"></td>
+            <td>
+                <audio controls>
+                    <source th:src="@{'/music/' + ${row.pathFile}}">
+                </audio>
+            </td>
+            <td>
+                <a th:href="@{/music/showEdit/{id}(id = ${row.id})}" class="btn btn-outline-success">Edit</a>
+            </td>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        onclick="objDelete(this.value)" th:value="${row.id}+','+${row.musicName}">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<form th:action="@{/music/delete}" method="post">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" hidden name="id" id="idDelete">
+                    <span>do you want to delete? <span class="text-danger" id="nameDelete"></span></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Delete">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function objDelete(name) {
+        let arr = name.split(",");
+        document.getElementById("nameDelete").innerText = arr[1];
+        document.getElementById("idDelete").value = arr[0];
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
