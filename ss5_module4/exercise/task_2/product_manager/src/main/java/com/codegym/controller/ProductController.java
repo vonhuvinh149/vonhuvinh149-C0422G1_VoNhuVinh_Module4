@@ -20,8 +20,8 @@ public class ProductController {
     IProductService productService;
 
     @GetMapping("/")
-    public String index(Model model) {
-        List<Product> productList = this.productService.findAll();
+    public String index(@RequestParam (required = false,defaultValue = "") String productName , Model model) {
+        List<Product> productList = this.productService.findAll(productName);
         model.addAttribute("product", productList);
         return "/home";
     }
@@ -50,9 +50,9 @@ public class ProductController {
         return "redirect:/";
     }
 
-    @GetMapping("/remove")
-    public String remove(@RequestParam int id, RedirectAttributes redirectAttributes){
-    productService.remove(id);
+    @PostMapping("/remove")
+    public String remove(@RequestParam int remove, RedirectAttributes redirectAttributes){
+    productService.remove(remove);
     redirectAttributes.addAttribute("massage","xoá thành công");
         return "redirect:/";
     }

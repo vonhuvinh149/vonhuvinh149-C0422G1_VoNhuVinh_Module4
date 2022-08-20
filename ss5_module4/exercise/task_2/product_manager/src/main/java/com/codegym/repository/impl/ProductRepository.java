@@ -12,13 +12,14 @@ import java.util.List;
 @Service
 public class ProductRepository implements IProductRepository {
     private final String FIND_BY_ID = "select p from Product p where p.id = :productId";
+    private final String FIND_ALL = "select p from Product p where lower(p.productName) like lower(:name)";
 
     @Override
-    public List<Product> findAll() {
+    public List<Product> findAll(String name) {
         TypedQuery<Product> typedQuery =
                 BaseRepository.entityManager.createQuery(
-                        "select s " +
-                                "from Product s", Product.class);
+                        FIND_ALL, Product.class);
+        typedQuery.setParameter("name", "%" + name + "%");
         return typedQuery.getResultList();
     }
 

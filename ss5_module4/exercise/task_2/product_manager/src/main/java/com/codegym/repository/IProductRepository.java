@@ -5,7 +5,7 @@ import com.codegym.model.Product;
 import java.util.List;
 
 public interface IProductRepository{
-    List<Product> findAll();
+    List<Product> findAll(String name);
     void create(Product product);
 
     Product findById(int id);
