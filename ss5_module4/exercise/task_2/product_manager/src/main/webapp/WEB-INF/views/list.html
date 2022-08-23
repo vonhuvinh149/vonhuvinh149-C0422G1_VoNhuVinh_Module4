@@ -31,7 +31,6 @@
                th:onclick="|callModal('${product.id}','${product.productName}')|">delete</a></td>
     </tr>
 </table>
-
 <form id="delete" action="/remove" method="post">
     <input hidden name="remove" id="idRemoved">
 </form>
@@ -45,7 +44,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input readonly id="takeId"  >
+                <input readonly id="takeId" >
                 <input readonly id="takeName">
             </div>
             <div class="modal-footer">

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/update" method="post" th:object="${blog}">
+    <div>id: <input readonly th:field="*{id}"></div>
+    <div>name: <input th:field="*{name}"></div>
+    <div>tittle: <input th:field="*{tittle}"></div>
+    <div>content: <input th:field="*{content}"></div>
+    <button type="submit">submit</button>
+</form>
+</body>
+</html>

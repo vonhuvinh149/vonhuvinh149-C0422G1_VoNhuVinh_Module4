@@ -23,7 +23,7 @@ public class ProductController {
     public String index(@RequestParam (required = false,defaultValue = "") String productName , Model model) {
         List<Product> productList = this.productService.findAll(productName);
         model.addAttribute("product", productList);
-        return "/home";
+        return "/list";
     }
 
     @GetMapping("/add")

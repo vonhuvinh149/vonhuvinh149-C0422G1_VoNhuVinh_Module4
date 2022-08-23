@@ -49,7 +49,6 @@ public class ProductController {
         return "redirect:/product/";
     }
 
-
     @PostMapping("/remove")
     public String remove(@RequestParam int remove, RedirectAttributes redirectAttributes) {
         productService.remove(remove);
