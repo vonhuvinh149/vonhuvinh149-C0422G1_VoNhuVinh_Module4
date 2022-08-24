@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/update" method="post" th:object="${product}">
+    <div>id: <input readonly th:field="*{id}"></div>
+    <div>title: <input th:field="*{name}"></div>
+    <div>content: <input th:field="*{price}"></div>
+    <div>content: <input th:field="*{description}"></div>
+    <div>content: <input th:field="*{producer}"></div>
+    <button type="submit">submit</button>
+</form>
+</body>
+</html>

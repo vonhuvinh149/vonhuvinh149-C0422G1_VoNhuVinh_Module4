@@ -52,7 +52,7 @@ public class BlogController {
     @GetMapping("/update/{id}")
     public String showUpdate(@PathVariable int id, Model model) {
         model.addAttribute("blog", this.blogService.findById(id));
-        return "update";
+        return "/update";
     }
 
     @PostMapping("/update")
