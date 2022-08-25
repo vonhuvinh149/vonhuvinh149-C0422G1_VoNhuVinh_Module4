@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<form action="/">
+    <input type="text" name="email">
+    <button type="submit" class="btn btn-success">search</button>
+</form>
+<a href="/add">create</a>
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Age</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="user,row : ${user}">
+        <td th:text="${row.count}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.firstName + ' ' + user.lastName}"></td>
+        <td th:text="${user.phoneNumber}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.email}" th:name="email"></td>
+    </tr>
+</table>
+
+<div>
+    <a th:href="@{/(page = ${user.number - 1},keyword = ${email})}" th:if="${user.hasPrevious()}">Previous</a>
+    <span th:text="${user.number + 1}"></span>
+    /
+    <span th:text="${user.totalPages}"></span>
+    <a th:href="@{/(page = ${user.number + 1},keyword = ${email})} " th:if="${user.hasNext()}">Next</a>
+</div>
+
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

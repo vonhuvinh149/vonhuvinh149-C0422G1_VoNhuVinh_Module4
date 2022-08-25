@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<a href="/create" class="table table-hover">create</a>
+<table class="table table-hover">
+    <tr>
+        <td>#</td>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Singer</td>
+        <td>Category</td>
+    </tr>
+    <tr th:each="music,row : ${musics}">
+        <td th:text="${row.count}"></td>
+        <td th:text="${music.idMusic}"></td>
+        <td th:text="${music.musicName}"></td>
+        <td th:text="${music.singer}"></td>
+        <td th:text="${music.category}"></td>
+    </tr>
+</table>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
