@@ -3,7 +3,6 @@ package com.codegym.controller;
 import com.codegym.dto.MusicDto;
 import com.codegym.model.Music;
 import com.codegym.service.IMusicService;
-import org.apache.catalina.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
