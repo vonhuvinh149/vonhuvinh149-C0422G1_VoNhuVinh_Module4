@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/pay" method="post" th:object="${book}">
+    <input type="number" th:field="*{}">
+</form>
+<table>
+    <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="books,row : ${book}">
+        <td th:text="${row.count}"></td>
+        <td th:text="${books.idBook}"></td>
+        <td th:text="${books.bookName}"></td>
+        <td th:text="${books.amountBook}"></td>
+        <td th:text="${books.contentBook}"></td>
+        <td th:text="${books.totalBook}"></td>
+        <td><a th:href="@{/detail/{id}(id = ${books.idBook})}">detail</a></td>
+    </tr>
+</table>
+</body>
+</html>
