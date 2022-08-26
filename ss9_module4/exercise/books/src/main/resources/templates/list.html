@@ -5,7 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-
+<div th:if="${msg != null}">
+    <p style="color: red" th:text="${msg}"></p>
+</div>
 <table>
     <tr>
         <th>#</th>

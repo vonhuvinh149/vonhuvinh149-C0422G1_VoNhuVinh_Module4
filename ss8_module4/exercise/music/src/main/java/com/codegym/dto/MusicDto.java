@@ -64,6 +64,5 @@ public class MusicDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-
     }
 }

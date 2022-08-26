@@ -1,16 +1,16 @@
 package com.codegym.dto;
 
+import com.codegym.util.FormUtil;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.time.LocalDate;
-import java.time.Period;
 
 public class UserDto implements Validator {
-    @NotBlank
+
+    @NotBlank(message = "vui long nhap")
     @Pattern(regexp = "[A-Za-z ]+", message = "vui long nhap dung dinh dang ")
     private String firstName;
 
@@ -36,19 +36,8 @@ public class UserDto implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         UserDto userDto = (UserDto) target;
+        FormUtil.checkAge(userDto, errors);
 
-        LocalDate now = LocalDate.now();
-
-        LocalDate dayOfBirth = null;
-
-        try {
-            dayOfBirth = LocalDate.parse(userDto.age);
-            if (Period.between(dayOfBirth,now).getYears() < 18){
-                errors.rejectValue("age","create.age","khong duoc nho hon 18 tuoi");
-            }
-        } catch (Exception e) {
-            errors.rejectValue("age","create.age","vui long nhap");
-        }
     }
 
     public String getFirstName() {

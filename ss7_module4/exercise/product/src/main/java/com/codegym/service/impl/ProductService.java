@@ -21,7 +21,7 @@ public class ProductService implements IProductService {
 
     @Override
     public Page<Product> findAllByNameContaining(String name, Pageable pageable) {
-        return productRepository.findAllByNameContaining(name,pageable);
+        return productRepository.findAllByNameContaining(name, pageable);
     }
 
     @Override
