@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>mả sách: <span th:text="${book.idBook}"></span></div>
+<div> tên sách: <span th:text="${book.bookName}"></span></div>
+<div>nội dung sách: <span th:text="${book.contentBook}"></span></div>
+<form action="/pay" method="post" th:object="${book}">
+    <input type="text" th:field="*{idBook}"/>
+    <button type="submit">Trả sách</button>
+</form>
+</body>
+</html>

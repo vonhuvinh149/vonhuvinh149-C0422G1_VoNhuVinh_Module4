@@ -5,9 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/pay" method="post" th:object="${book}">
-    <input type="number" th:field="*{}">
-</form>
+
 <table>
     <tr>
         <th>#</th>
@@ -24,6 +22,7 @@
         <td th:text="${books.contentBook}"></td>
         <td th:text="${books.totalBook}"></td>
         <td><a th:href="@{/detail/{id}(id = ${books.idBook})}">detail</a></td>
+        <td><a th:href="@{/backBook/{id}(id = ${books.idBook})}">back Book</a></td>
     </tr>
 </table>
 </body>

@@ -27,6 +27,7 @@ public class BookController {
         Page<Book> books = this.bookService.findByBookNameContaining(keywordVal,pageable);
         model.addAttribute("book", books );
         model.addAttribute("keyword",keywordVal);
+
         return "/list";
     }
 
@@ -35,6 +36,13 @@ public class BookController {
         Book book = this.bookService.findById(id);
         model.addAttribute("book", book);
         return "/detail";
+    }
+
+    @GetMapping("/backBook/{id}")
+    public String backBook(@PathVariable int id, Model model) {
+        Book book = this.bookService.findById(id);
+        model.addAttribute("book", book);
+        return "/pay";
     }
 
     @PostMapping("/borrow")
