@@ -1,5 +1,7 @@
 package com.codegym.controller;
 
+import com.codegym.common.NotFoundBook;
+import com.codegym.common.NotMaxBook;
 import com.codegym.model.Book;
 import com.codegym.service.IBookService;
 
@@ -10,6 +12,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Optional;
@@ -47,34 +50,31 @@ public class BookController {
     }
 
     @PostMapping("/borrow")
-    public String borrow(@RequestParam int idBook, RedirectAttributes redirectAttributes) throws Exception {
+    public String borrow(@RequestParam int idBook, RedirectAttributes redirectAttributes) throws NotFoundBook, Exception, NotMaxBook {
         Book book = bookService.findById(idBook);
-        if (book.getAmountBook() > 0) {
-            book.setAmountBook(book.getAmountBook() - 1);
-            book.setBorrowAll(book.getBorrowAll() + 1);
-        }else {
-            throw new Exception();
-        }
         bookService.save(book);
         redirectAttributes.addFlashAttribute("msg","mượn thành công");
+
         return "redirect:/";
     }
 
     @PostMapping("/pay")
-    public String pay(@RequestParam int idBook,RedirectAttributes redirectAttributes) throws Exception {
+    public String pay(@RequestParam int idBook,RedirectAttributes redirectAttributes) throws NotMaxBook, Exception, NotFoundBook {
+
         Book book = bookService.findById(idBook);
-        if (book.getAmountBook() < book.getTotalBook()) {
-            book.setAmountBook(book.getAmountBook() + 1);
-        }else {
-            throw new Exception();
-        }
         bookService.save(book);
         redirectAttributes.addFlashAttribute("msg","trả thành công");
+
         return "redirect:/";
     }
 
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = NotFoundBook.class)
     public String errors() {
+        return "/error";
+    }
+
+    @ExceptionHandler(value = NotMaxBook.class)
+    public String errorsTotal() {
         return "/errors";
     }
 }
