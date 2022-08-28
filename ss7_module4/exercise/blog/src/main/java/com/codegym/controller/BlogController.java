@@ -86,7 +86,7 @@ public class BlogController {
     public String delete(@RequestParam int id, RedirectAttributes redirectAttributes) {
 
         this.blogService.deleteById(id);
-        redirectAttributes.addFlashAttribute("msg","mượn thành công");
+        redirectAttributes.addFlashAttribute("msg","xoá thành công");
 
         return "redirect:/";
     }

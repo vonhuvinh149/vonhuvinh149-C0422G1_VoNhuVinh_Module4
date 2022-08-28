@@ -1,0 +1,50 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#customer_list {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(cadetblue, pink, greenyellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    position: relative;
+    margin: 100px;
+}
+
+table tr th {
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    color: cornsilk;
+}
+
+#back {
+    text-decoration: none;
+    color: cornsilk;
+    padding: 5px 10px;
+    background-color: green;
+    border-radius: 10px 0 0 10px ;
+}
+
+#next {
+    text-decoration: none;
+    color: cornsilk;
+    padding: 5px 22px;
+    background-color: green;
+    border-radius:0 10px 10px 0;
+}
+
+b{
+    color: white;
+    margin:10px ;
+}
+
+

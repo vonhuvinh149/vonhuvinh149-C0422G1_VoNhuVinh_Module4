@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial sans-serif;
+
+}
+
+.banner_frm {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("img1.png");
+    background-size: cover;
+}
+
+.banner_frm #content_frm {
+    position: absolute;
+    max-width: 900px;
+    text-align: center;
+}
+
+.banner_frm #content_frm h2 {
+    color: white;
+    font-size: 4em;
+}
+
+.banner_frm #content_frm p {
+    font-weight: normal;
+    color: white;
+}
+
+.btn_frm {
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background-color: #ff0157;
+    color: white;
+    transition: 0.5s;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn_frm:hover {
+    letter-spacing: 4px;
+    color: white;
+}
+
+#card1 {
+    margin: auto;
+    width: 90%;
+    border: none;
+    box-shadow: 1px 1px 10px #E8E8E8;
+    display: flex;
+}
+
+.title {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    margin: 120px 0;
+    text-shadow: 1px 1px 5px #666666;
+
+}
+
+.title span {
+    color: #FF0066;
+    font-size: 50px;
+}
+
+
+.vinh2 {
+    height: 350px;
+}
+
+.entertainment_card {
+    margin:60px auto;
+    width: 90%;
+    gap: 40px;
+
+}
+
+.entertainment_card .card {
+    box-shadow: 1px 1px 10px #D0D0D0;
+}

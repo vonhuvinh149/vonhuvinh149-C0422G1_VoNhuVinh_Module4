@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Furama</title>
+    <link rel="stylesheet" href="/furama_css/fragment.css">
+
+</head>
+<body>
+<header th:fragment="header">
+    <a href="#" class="logo">furama<span>*</span></a>
+    <ul id="menu">
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a href="#introduce">Introduce</a></li>
+        <li><a href="#intertai">Entertainment</a></li>
+        <li><a href="#management">Management</a></li>
+        <li><a th:href="@{/customer/customer_list}">Customer</a></li>
+        <li><a href="#blog">Blog</a></li>
+    </ul>
+</header>
+
+
+</script>
+</body>
+</html>

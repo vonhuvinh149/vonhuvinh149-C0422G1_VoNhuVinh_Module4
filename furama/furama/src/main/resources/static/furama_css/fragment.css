@@ -1,0 +1,83 @@
+header {
+    position: fixed;
+    top: 0;
+    letter-spacing: 0;
+    width: 100%;
+    padding: 5px 100px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+    scroll-behavior: smooth;
+}
+
+header .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+header .logo:hover span{
+    color: white;
+}
+
+header .logo:hover{
+    color: white;
+}
+
+header .logo span {
+    font-size: 30px;
+    color: 	#FF0066;
+}
+
+header.sticky .logo {
+    font-size: 30px;
+    color: #495057;
+}
+header.sticky .logo:hover span{
+    color: #495057;
+}
+
+header #menu {
+    position: relative;
+    display: flex;
+}
+
+header #menu li {
+    padding-top: 10px;
+    list-style: none;
+    margin-left: 30px;
+}
+
+header #menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+header #menu li a:hover {
+    color: red;
+}
+
+header.sticky {
+    background-color: white;
+    box-shadow: 0 5px 10px #E0E0E0;
+}
+
+header.sticky #menu li a {
+    color: #495057;
+    font-weight: bold;
+}
+
+header.sticky #menu li a:hover{
+    color: red;
+
+}
+
+
+
+
+
+
