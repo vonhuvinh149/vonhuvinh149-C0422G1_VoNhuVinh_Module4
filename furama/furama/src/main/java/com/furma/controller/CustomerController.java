@@ -59,7 +59,9 @@ public class CustomerController {
     @PostMapping("/create")
 
     public String save(@ModelAttribute Customer customer) {
+
         this.customeService.save(customer);
+
         return "redirect:/customer/customer_list";
     }
 
@@ -80,6 +82,4 @@ public class CustomerController {
 
         return "redirect:/";
     }
-
-
 }

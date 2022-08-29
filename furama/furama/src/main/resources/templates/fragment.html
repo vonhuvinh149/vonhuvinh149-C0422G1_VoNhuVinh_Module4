@@ -8,7 +8,7 @@
 </head>
 <body>
 <header th:fragment="header">
-    <a href="#" class="logo">furama<span>*</span></a>
+    <a th:href="@{/}" class="logo">furama<span>*</span></a>
     <ul id="menu">
         <li><a th:href="@{/}">Home</a></li>
         <li><a href="#introduce">Introduce</a></li>
@@ -18,7 +18,11 @@
         <li><a href="#blog">Blog</a></li>
     </ul>
 </header>
-
+<script th:fragment="js">
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector('header');
+        header.classList.toggle("sticky", window.scrollY > 0)
+    });
 
 </script>
 </body>

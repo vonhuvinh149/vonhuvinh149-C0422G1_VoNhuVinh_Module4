@@ -19,26 +19,32 @@ header .logo {
     font-weight: bolder;
 }
 
-header .logo:hover span{
-    color: white;
-}
-
-header .logo:hover{
-    color: white;
-}
 
 header .logo span {
     font-size: 30px;
-    color: 	#FF0066;
+    color: #FF0066;
+}
+
+
+header .logo:hover span {
+    color: white;
+}
+
+header .logo:hover {
+    color:  #FF0066;
 }
 
 header.sticky .logo {
     font-size: 30px;
     color: #495057;
 }
-header.sticky .logo:hover span{
+
+header.sticky .logo:hover span {
     color: #495057;
 }
+
+
+
 
 header #menu {
     position: relative;
@@ -63,15 +69,27 @@ header #menu li a:hover {
 
 header.sticky {
     background-color: white;
-    box-shadow: 0 5px 10px #E0E0E0;
+    box-shadow: 0 5px 10px #666666;
+    animation: vinh 1s;
+}
+
+@keyframes vinh {
+    from{
+        margin-top:-100px ;
+        opacity: .1;
+    }
+    to
+    {
+        margin-top: 0;
+        opacity: 1;
+    }
 }
 
 header.sticky #menu li a {
     color: #495057;
     font-weight: bold;
 }
-
-header.sticky #menu li a:hover{
+header.sticky #menu li a:hover {
     color: red;
 
 }

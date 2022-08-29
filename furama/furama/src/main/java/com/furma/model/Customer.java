@@ -14,7 +14,7 @@ import javax.persistence.*;
         @Column(name = "ngay_sinh")
         private String dateOfBirth;
         @Column(name = "gioi_tinh")
-        private Integer gender;
+        private String gender;
         @Column(name = "so_cmnd")
         private String idCard;
         @Column(name = "so_dien_thoai")
@@ -31,7 +31,7 @@ import javax.persistence.*;
         public Customer() {
         }
 
-        public Customer(Integer id, String name, String dateOfBirth, Integer gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType) {
+        public Customer(Integer id, String name, String dateOfBirth, String gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType) {
             this.id = id;
             this.name = name;
             this.dateOfBirth = dateOfBirth;
@@ -67,11 +67,11 @@ import javax.persistence.*;
             this.dateOfBirth = dateOfBirth;
         }
 
-        public Integer getGender() {
+        public String getGender() {
             return gender;
         }
 
-        public void setGender(Integer gender) {
+        public void setGender(String gender) {
             this.gender = gender;
         }
 
