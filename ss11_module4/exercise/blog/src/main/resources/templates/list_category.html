@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+<body>
+<table class="table table-hover">
+    <tr>
+        <td>#</td>
+        <td>ID</td>
+        <td>Name Category</td>
+    </tr>
+    <tr th:each="category,row : ${category}">
+        <td th:text="${row.count}"></td>
+        <td th:text="${category.idCategory}"></td>
+        <td th:text="${category.nameCategory}"></td>
+    </tr>
+</table>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
