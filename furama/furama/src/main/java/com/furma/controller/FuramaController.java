@@ -8,6 +8,13 @@ public class FuramaController {
 
     @GetMapping("/")
     public String home(){
-        return "/home";
+        return "layout/home";
     }
+
+    @GetMapping("/about")
+    public String about(){
+        return "redirect:/#about";
+    }
+
+
 }

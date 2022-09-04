@@ -58,7 +58,17 @@ public class Cart {
         }
     }
 
-
+//    public Integer countProductQuantity(){
+//        Integer productQuantity = 0;
+//        for (Map.Entry<Product, Integer> entry : map.entrySet()) {
+//            productQuantity += entry.getValue();
+//        }
+//        return productQuantity;
+//    }
+//
+//    public Integer countItemQuantity(){
+//        return map.size();
+//    }
 
     public Float countTotalPayment(){
         float payment = 0;

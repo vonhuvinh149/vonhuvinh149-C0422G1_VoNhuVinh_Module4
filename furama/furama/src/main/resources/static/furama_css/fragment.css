@@ -69,14 +69,14 @@ header #menu li a:hover {
 
 header.sticky {
     background-color: white;
-    box-shadow: 0 5px 10px #666666;
-    animation: vinh 1s;
+    box-shadow: 0 1px 10px #666666;
+    animation: vinh 1.5s;
 }
 
 @keyframes vinh {
     from{
         margin-top:-100px ;
-        opacity: .1;
+        opacity: 5;
     }
     to
     {

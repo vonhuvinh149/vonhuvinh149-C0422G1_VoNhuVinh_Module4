@@ -21,6 +21,16 @@
     position: absolute;
     max-width: 900px;
     text-align: center;
+    animation: content 5s ;
+}
+
+@keyframes content{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 .banner_frm #content_frm h2 {
@@ -46,6 +56,7 @@
     margin-top: 20px;
 }
 
+
 .btn_frm:hover {
     letter-spacing: 4px;
     color: white;
@@ -58,13 +69,14 @@
     box-shadow: 1px 1px 10px #E8E8E8;
     display: flex;
 }
-
+/*------------------------------------------------*/
 .title {
-    color: black;
+    color: #555555;
     text-align: center;
     font-weight: bold;
     margin: 120px 0;
-    text-shadow: 1px 1px 5px #666666;
+    text-shadow: 1px 1px 5px DarkGray;
+    scroll-margin-top:100px ;
 
 }
 
@@ -73,18 +85,23 @@
     font-size: 50px;
 }
 
-
-.vinh2 {
-    height: 350px;
-}
-
 .entertainment_card {
     margin:60px auto;
     width: 90%;
     gap: 40px;
-
 }
 
 .entertainment_card .card {
     box-shadow: 1px 1px 10px #D0D0D0;
+}
+
+/*-----------------------*/
+.cards_a{
+    border-right: 1px solid Silver;
+}
+
+
+.img_card{
+   width: 100%;
+;
 }

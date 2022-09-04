@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/furama_css/facility.css">
+</head>
+<body>
+
+<form th:action="@{/facility/create}" method="post">
+    </tr>
+    <table th:object="${facility}" cellpadding="5px" cellspacing="20">
+        <div>Chọn loại dịch vụ:
+            <select name="" th:field="*{facilityType}" id="type_facility" onclick="facility()">
+                <option value="none">Chọn loại dịch vụ</option>
+                <option th:each="facilityType : ${facilityTypes}"
+                        th:text="${facilityType.nameFacilityType}"
+                        th:value="${facilityType.idFacilityType}" th:id="${facilityType.idFacilityType}"></option>
+            </select>
+        </span>
+        </div>
+        <tr>
+            <td>Name Facility</td>
+            <td><input type="text" placeholder="nhập tên dịch vụ" th:field="*{nameFacility}"></td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td><input type="number" min="1" placeholder="diện tich" th:field="*{area}"></td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td><input type="number" min="1" placeholder="Chi phí thuê" th:field="*{cost}"></td>
+        </tr>
+        <tr>
+            <td>Max people</td>
+            <td><input type="number" min="1" placeholder="số người tối đa" th:field="*{maxPeople}"></td>
+        </tr>
+        <tr id="standardRoom_row">
+            <td>Standard Room</td>
+            <td><input type="text" placeholder="Tiêu chuẩn phòng" th:field="*{standardRoom}"
+                       value="null"></td>
+        </tr>
+        <tr id="description_row">
+            <td>Description</td>
+            <td><textarea placeholder="Mô tả" th:field="*{description}"  value="null"></textarea></td>
+        </tr>
+        <tr id="poolArea_row">
+            <td>Pool Area</td>
+            <td><input type="number" min="1" placeholder="Diện tích hồ bơi" th:field="*{poolArea}" id="poolArea"
+                       value="null"></td>
+        </tr>
+        <tr id="numberFloor_row">
+            <td>Number Floor</td>
+            <td><input type="number" min="1" th:field="*{numberFloors}"  value="null"></td>
+        </tr>
+        <tr id="facilityFree_Row">
+            <td>Dịch vụ miễn phí đi kèm</td>
+            <td><input type="text" placeholder="nhập tên dịch vụ" th:field="*{facilityFree}"
+                       value="null"></td>
+        </tr>
+        <tr>
+            <td>Kiểu thuê</td>
+            <td><select name="" th:field="*{rentType}">
+                <option th:each="rentTypes : ${rentType}" th:text="${rentTypes.nameRentType}"
+                        th:value="${rentTypes.idRentType}"></option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><a th:href="@{/facility/list_facility}" class="btn btn-secondary">Back To List</a></td>
+            <td>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    function facility() {
+        let type = document.getElementById("type_facility").value;
+        const table = document.querySelector("table");
+        switch (type) {
+            case "1":
+                table.classList.toggle("villa");
+                break;
+            case "2":
+                table.classList.toggle("house");
+                break
+            case "3":
+                table.classList.toggle("room");
+                break
+        }
+    }
+</script>
+<link rel="stylesheet" href="/css/bootstrap-utilities.rtl.min.css">
+</body>
+</html>

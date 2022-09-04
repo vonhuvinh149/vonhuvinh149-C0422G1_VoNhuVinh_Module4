@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img th:src="${products.get().img}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${products.get().name}"></h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a th:href="@{/shop}" class="btn btn-primary" style="width: 100%">Back Shop</a>
+                    <a th:href="@{/add/__${products.get().id}__(action='list')}" class="btn btn-primary mt-3"
+                          style="width: 100%">Create Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+                <h2 th:text="${products.get().name}"></h2>
+                <p th:text="${products.get().codeProduct}"></p>
+                <p th:text="${products.get().description}"></p>
+                <p th:text="${products.get().price}"></p>
+        </div>
+    </div>
+</div>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

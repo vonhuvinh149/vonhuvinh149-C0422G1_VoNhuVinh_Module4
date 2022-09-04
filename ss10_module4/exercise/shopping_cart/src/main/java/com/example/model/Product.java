@@ -12,25 +12,21 @@ public class Product {
     private Integer quantity;
     private Double price;
     private String img;
+    private Integer totalAmount;
+    private String description;
 
     public Product() {
     }
 
-    public Product(Integer id, String code, String name, Integer quantity, Double price, String url) {
+    public Product(Integer id, String codeProduct, String name, Integer quantity, Double price, String img, Integer totalAmount, String description) {
         this.id = id;
-        this.codeProduct = code;
+        this.codeProduct = codeProduct;
         this.name = name;
         this.quantity = quantity;
         this.price = price;
-        this.img = url;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String url) {
-        this.img = url;
+        this.img = img;
+        this.totalAmount = totalAmount;
+        this.description = description;
     }
 
     public Integer getId() {
@@ -45,8 +41,8 @@ public class Product {
         return codeProduct;
     }
 
-    public void setCodeProduct(String code) {
-        this.codeProduct = code;
+    public void setCodeProduct(String codeProduct) {
+        this.codeProduct = codeProduct;
     }
 
     public String getName() {
@@ -71,6 +67,30 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public Integer getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Integer totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 

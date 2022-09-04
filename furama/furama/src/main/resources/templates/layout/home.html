@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../furama_css/home.css">
+    <link rel="stylesheet" href="../furama_css/fragment.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+</head>
+<body>
+<nav th:replace="~{layout/fragment::header}"></nav>
+<section id="bgr_frm">
+    <div class="banner_frm" id="banner_frm">
+        <div id="content_frm">
+            <h2>Furama Danang</h2>
+            <p>All 198 rooms & suites have polished timber floors, natural fabrics, comfortable cane furniture,
+                plantation style shutters and ceiling fans. Each room also has its own balcony or spacious terrace
+                providing complete privacy and with a superb view of the ocean, the tropical garden or the freshwater
+                swimming lagoon pool.
+            </p>
+        </div>
+    </div>
+</section>
+<h1 class="title " id="about"><span>A</span>bout Us</h1>
+
+<div class="container-fluid">
+    <div class="row m-5">
+        <div class="col-lg-6 cards_a mb-5">
+            <div class="row container-fluid">
+                <div class="col-lg-6 col-md-12 "><img src="/furama_css/img3.jpg" class="img-fluid rounded-start"
+                                                      alt="..."
+                                                      style="width: 100%"></div>
+                <div class="col-lg-6 col-md-12 ">
+                    <p style="color: #999999 ;">Hướng ra bãi biển Đà Nẵng trải dài cát trắng, Furama
+                        Resort Đà Nẵng là cửa ngõ đến với 3 di sản văn hoá thế
+                        giới: Hội An (20 phút), Mỹ Sơn (90 phút) và Huế (2 tiếng. 196 phòng hạng sang cùng với 70
+                        căn
+                        biệt thự từ
+                        hai đến bốn phòng ngủ có hồ bơi riêng đều được trang trí trang nhã, theo phong cách thiết kế
+                        truyền thống
+                        của Việt Nam và kiến trúc thuộc địa của Pháp, biến Furama thành khu nghỉ dưỡng danh giá nhất
+                        tại
+                        Việt Nam –
+                        vinh dự được đón tiếp nhiều người nổi tiếng, giới hoàng gia, chính khách, ngôi sao điện ảnh
+                        và
+                        các nhà lãnh
+                        đạo kinh doanh quốc tế.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 cards_a mb-5">
+            <div class="row container-fluid">
+                <div class="col-lg-6 col-md-12 ">
+                    <img src="/furama_css/spa1.jpg" alt="" width="100%">
+                </div>
+                <div class="col-lg-6 col-md-12 position-relative">
+                    <p class="card-text" style="color: #999999">
+                        Nuông chiều bản thân và thư giãn với các liệu pháp mát xa chân, điều trị cơ thể, chăm sóc da
+                        mặt, móng tay,
+                        tẩy tế bào chết và nhiều dịch vụ làm đẹp khác ngay trong kỳ nghỉ với các tiện ích tiện lợi
+                        bao
+                        gồm cả xông
+                        hơi khô và xông ướt sẵn có tại đây. Tại sao không?
+
+                        Không gian Spa xinh xắn, nằm tĩnh mịch giữa rừng cây xanh mát, có con đường lát gỗ nhỏ hướng
+                        ra
+                        bãi biển
+                        sóng vỗ rì rào, thầm thì như khẽ hát của Furama nổi tiếng với những liệu pháp trị liệu hiệu
+                        quả
+                        sử dụng các
+                        sản phẩm hữu cơ cao cấp.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 id="facility" class="title"><span>F</span>acility</h1>
+
+<div class="container-fluid ">
+    <div class="row m-5">
+        <div class="col-lg-4 mb-5">
+            <div class="card">
+                <img src="/furama_css/room.jpg" class="card-img-top" alt="..." height="400px">
+                <div class="card-body text-center">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card's content.</p>
+                    <p>
+                        <a href="" class="btn_frm">view detail</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4 mb-5">
+            <div class="card">
+                <img src="/furama_css/house.jpg" class="card-img-top" alt="..." height="400px">
+                <div class="card-body text-center">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card's content.</p>
+                    <p>
+                        <a href="" class="btn_frm">view detail</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-5">
+            <div class="card">
+                <img src="/furama_css/villa.jpg" class="card-img-top" alt="..." height="400px">
+                <div class="card-body text-center">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card's content.</p>
+                    <p>
+                        <a href="" class="btn_frm">view detail</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav th:replace="~{layout/fragment::footer}"></nav>
+<div th:replace="~{layout/fragment::js}"></div>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

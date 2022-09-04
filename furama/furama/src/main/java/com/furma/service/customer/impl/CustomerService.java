@@ -1,6 +1,6 @@
 package com.furma.service.customer.impl;
 
-import com.furma.model.Customer;
+import com.furma.model.customer.Customer;
 import com.furma.repository.ICustomerRepository;
 import com.furma.service.customer.ICustomeService;
 import org.springframework.beans.factory.annotation.Autowired;

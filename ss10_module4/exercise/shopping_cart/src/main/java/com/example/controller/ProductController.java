@@ -57,5 +57,14 @@ public class ProductController {
         cart.getMap().clear();
         return "redirect:/shop";
     }
+
+    @GetMapping("/detail/{id}")
+    public String detail(@PathVariable int id,Model model){
+
+        Optional<Product> product = this.service.findById(id);
+        model.addAttribute("products",product);
+
+        return "/detail";
+    }
 }
 
