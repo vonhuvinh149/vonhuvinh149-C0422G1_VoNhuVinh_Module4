@@ -27,7 +27,7 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping("/")
-    public String home(Model model, @PageableDefault(size = 2) Pageable pageable,
+    public String home(Model model, @PageableDefault Pageable pageable,
                                     @RequestParam Optional<String> keyword) {
 
         String keywordVal = keyword.orElse("");

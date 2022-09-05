@@ -13,21 +13,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/rest")
+@CrossOrigin
 public class BlogRestController {
 
     @Autowired
     private IBlogService blogService;
 
     @Autowired
-    private ICategoryService categoryService ;
+    private ICategoryService categoryService;
 
     @GetMapping("/list_blog")
-    public ResponseEntity<Page<Blog>> listBlog(@PageableDefault(size = 2) Pageable pageable) {
+    public ResponseEntity<Page<Blog>> listBlog(@PageableDefault(size = 2) Pageable pageable,
+                                               @RequestParam Optional<String> keyword) {
 
-        Page<Blog> blogList = this.blogService.findAll(pageable);
+        String title = keyword.orElse("");
+        Page<Blog> blogList = this.blogService.findByTitleContaining(title,pageable);
         if (!blogList.hasContent()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -37,32 +41,34 @@ public class BlogRestController {
 
 
     @GetMapping("/list_category")
-    public ResponseEntity<Iterable<Category>>  listCategory(){
+    public ResponseEntity<Iterable<Category>> listCategory() {
         List<Category> categoryList = this.categoryService.findAll();
-        if (categoryList.isEmpty()){
-           return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        if (categoryList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(categoryList,HttpStatus.OK);
+        return new ResponseEntity<>(categoryList, HttpStatus.OK);
     }
-//
+
+    //
     @GetMapping("/blog_category/{id}")
-    public ResponseEntity<Page<Blog>> blogCategoryId(@PathVariable int id, Pageable pageable){
+    public ResponseEntity<Page<Blog>> blogCategoryId(@PathVariable int id, Pageable pageable) {
 
-        Page<Blog> blogCategoryID = this.blogService.findAllByCategory_IdCategory(id,pageable);
+        Page<Blog> blogCategoryID = this.blogService.findAllByCategory_IdCategory(id, pageable);
 
-        if (!blogCategoryID.hasContent()){
+        if (!blogCategoryID.hasContent()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(blogCategoryID, HttpStatus.OK);
     }
 
     @GetMapping("/blogId")
-    public ResponseEntity<Blog> blogId(@RequestParam int id){
+    public ResponseEntity<Blog> blogId(@RequestParam int id) {
         Blog blog = this.blogService.findById(id);
-        if (blog == null){
+        if (blog == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(blog,HttpStatus.OK);
+        return new ResponseEntity<>(blog, HttpStatus.OK);
     }
+
 
 }

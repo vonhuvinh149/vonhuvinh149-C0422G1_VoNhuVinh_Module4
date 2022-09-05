@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+section{
+    position: relative;
+}
+
 #customer_list {
     height: 100vh;
     width: 100%;
@@ -21,6 +25,10 @@
 table {
     position: relative;
     margin: 100px;
+}
+
+table tr {
+    position: relative;
 }
 
 table tr th {

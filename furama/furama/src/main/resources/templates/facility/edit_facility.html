@@ -12,7 +12,8 @@
         <tr>
             <td>Chọn loại dịch vụ:</td>
             <td>
-                <select name="" th:field="*{facilityType}" id="type_facility"  onclick="facility()">
+                <select name="" th:field="*{facilityType}" id="type_facility"  onchange="facility()">
+
                     <option th:each="facilityType : ${facilityTypes}"
                             th:text="${facilityType.nameFacilityType}"
                             th:value="${facilityType.idFacilityType}">
