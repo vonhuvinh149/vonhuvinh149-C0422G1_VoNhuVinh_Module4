@@ -116,6 +116,29 @@
         event.preventDefault();
     }
 
+    $("#updateSmartphone").click(function () {
+        let id = $("#id").val();
+        let producer = $("#updateProducer").val();
+        let model = $("#updateModel").val();
+        let price = $("#updatePrice").val();
+        let newSmartphone = {
+            id: id,
+            producer: producer,
+            model: model,
+            price: price
+        };
+        $.ajax({
+            type: "PUT",
+            data: JSON.stringify(newSmartphone),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: "phone/update/",
+            success: successHandler
+        })
+    })
+
     function successHandler() {
         $.ajax({
             type: "GET",
@@ -180,26 +203,5 @@
         event.preventDefault();
     })
 
-    $("#updateSmartphone").click(function () {
-        let id = $("#id").val();
-        let producer = $("#updateProducer").val();
-        let model = $("#updateModel").val();
-        let price = $("#updatePrice").val();
-        let newSmartphone = {
-            id: id,
-            producer: producer,
-            model: model,
-            price: price
-        };
-        $.ajax({
-            type: "PUT",
-            data: JSON.stringify(newSmartphone),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            url: "phone/update/",
-            success: successHandler
-        })
-    })
+
 </script>
