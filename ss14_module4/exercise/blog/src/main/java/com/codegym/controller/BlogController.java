@@ -18,6 +18,7 @@ import java.util.Optional;
 
 
 @Controller
+@RequestMapping("/blog")
 public class BlogController {
 
     @Autowired
@@ -38,10 +39,6 @@ public class BlogController {
         return "/list_blog";
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "/login";
-    }
 
     @GetMapping("/detail/{id}")
     public String detail(@PathVariable int id, Model model) {

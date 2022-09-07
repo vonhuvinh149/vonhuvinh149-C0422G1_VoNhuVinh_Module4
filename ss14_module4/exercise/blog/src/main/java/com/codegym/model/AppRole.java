@@ -1,4 +1,4 @@
-package com.codegym.entity.entity;
+package com.codegym.model;
 
 import javax.persistence.*;
 
@@ -16,6 +16,14 @@ public class AppRole {
     @Column(name = "Role_Name", length = 30, nullable = false)
     private String roleName;
 
+    public AppRole(Long roleId, String roleName) {
+        this.roleId = roleId;
+        this.roleName = roleName;
+    }
+
+    public AppRole() {
+    }
+
     public Long getRoleId() {
         return roleId;
     }
@@ -31,5 +39,6 @@ public class AppRole {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
 
 }
