@@ -13,18 +13,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("img1.png");
+    background-image: url("bgr2.jpg");
     background-size: cover;
 }
 
-.banner_frm #content_frm {
+/*#content_frm{*/
+/*    background-color: #A8A8A8;*/
+/*    opacity: .5;*/
+/*}*/
+
+.banner_frm #content_frm    {
     position: absolute;
     max-width: 900px;
     text-align: center;
     animation: content 5s ;
 }
 
-@keyframes content{
+@keyframes content {
     from{
         opacity: 0;
     }
@@ -34,13 +39,18 @@
 }
 
 .banner_frm #content_frm h2 {
-    color: white;
-    font-size: 4em;
+    font-size: 5em;
+    font-weight: bold;
+    text-shadow: 1px 2px white, -1px -1px #333;
+    color: #14866f;
+
 }
 
 .banner_frm #content_frm p {
-    font-weight: normal;
-    color: white;
+    font-weight: bolder;
+    color: #14866f;
+    font-size: 24px;
+    text-shadow: 1px 1px white, -1px -1px #333;
 }
 
 .btn_frm {

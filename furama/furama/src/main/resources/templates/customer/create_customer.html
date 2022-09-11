@@ -2,71 +2,74 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thêm mới khách hàng</title>
     <link rel="stylesheet" href="/furama_css/create.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/css/mdb.min.css">
+    <link rel="stylesheet" href="/furama_css/fragment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
-<section>
-    <div id="container">
-        <div id="color"></div>
-        <div id="input">
-            <h2>Thêm Mới Khách Hàng</h2>
-            <form action="/customer/create" method="post" th:object="${customer}">
-                <table>
-                    <tr>
-                        <td>Tên khách hàng</td>
-                        <td><input type="text" th:field="*{name}"></td>
-                    </tr>
-                    <tr>
-                        <td>Ngày sinh</td>
-                        <td><input th:field="*{dateOfBirth}" type="date"></td>
-                    </tr>
-                    <tr>
-                        <td>Giới tính:</td>
-                        <td><select th:field="*{gender}">
-                            <option value="Nam">Nam</option>
-                            <option value="Nu">Nữ</option>
-                        </select></td>
-                    </tr>
-                    <tr>
-                        <td>CMND/CCCD:</td>
-                        <td><input th:field="*{idCard}" type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>Số điện thoại:</td>
-                        <td><input th:field="*{phoneNumber}" type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>Email:</td>
-                        <td><input th:field="*{email}" type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>Địa chỉ:</td>
-                        <td><input th:field="*{address}" type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>Loại khách:</td>
-                        <td><select name="" id="" th:field="*{customerType}">
-                            <option th:each="customerTypes : ${customerTypesList}"
-                                    th:value="${customerTypes.customer_type_id}"
-                                    th:text="${customerTypes.customer_type_name}">
-                            </option>
-                        </select></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <button class="btn btn-light">Back To List</button>
-                            <button class="btn btn-primary" type="submit">save</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+<h1 class="text-center text-danger mb-3">Thêm mới khách hàng</h1>
+<div class="container-fluid d-flex justify-content-center">
+    <form th:object="${customer}" style="width: 500px" action="/customer/create" method="post">
+
+        <div class="form-outline mb-4">
+            <input type="text" id="form4Example1" class="form-control" th:field="*{name}"/>
+            <label class="form-label" for="form4Example1">Tên Khách Hàng</label>
         </div>
-    </div>
-</section>
-<script src="/js/bootstrap.min.js"></script>
+
+        <div class="form-outline mb-4">
+            <input type="date" id="form4Example2" class="form-control" th:field="*{dateOfBirth}"/>
+            <label class="form-label" for="form4Example2">Ngày sinh</label>
+        </div>
+
+        <div class=" mb-4">
+            <label class="form-label">Giới tính</label>
+            <select th:field="*{gender}" style="width: 100% ; font-size: 16px ; color:#666666;padding: 7px">
+                <option value="Nam">Nam</option>
+                <option value="Nu">Nữ</option>
+            </select>
+
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" id="form4Example4" class="form-control" th:field="*{idCard}"/>
+            <label class="form-label" for="form4Example4">CMND/CCCD</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" id="form4Example5" class="form-control" th:field="*{phoneNumber}"/>
+            <label class="form-label" for="form4Example5">Số điện thoại</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" id="form4Example6" class="form-control" th:field="*{email}"/>
+            <label class="form-label" for="form4Example6">Email</label>
+        </div>
+        <div class="form-outline mb-4">
+            <input type="text" id="form4Example7" class="form-control" th:field="*{address}"/>
+            <label class="form-label" for="form4Example7">Địa chỉ</label>
+        </div>
+        <div class=" mb-4">
+
+            <label class="form-label" for="form4Example7">Chọn Loại khách hàng</label>
+            <select  th:field="*{customerType}" style="width: 100% ; font-size: 20px; color:#666666;padding: 7px">
+                <option th:each="customerTypes : ${customerTypesList}"
+                        th:value="${customerTypes.customer_type_id}"
+                        th:text="${customerTypes.customer_type_name}">
+                </option>
+            </select>
+        </div>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
+        <button class="btn btn-secondary" style="width: 100%">Back To List</button>
+    </form>
+</div>
+
+<nav th:replace="~{layout/fragment::footer}"></nav>
+<div th:replace="~{layout/fragment::js}"></div>
+
+<script src="/js/mdb.min.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Danh sách dịch vụ</title>
     <link rel="stylesheet" href="/furama_css/fragment.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/furama_css/customer.css">
@@ -13,13 +13,17 @@
 <section id="customer_list">
     <table class="table table-striped table-hover">
         <tr>
-            <td colspan="2"><a href="/facility/add" class="btn btn-primary  " id="create">Create</a></td>
+            <td colspan="2"><a href="/facility/add" class="btn btn-primary  " id="create">Create</a>
+                <h3 class="text-danger" th:if="${msg != null}" th:text="${msg}"></h3>
+            </td>
             <th colspan="4">Danh Sách Dịch Vụ</th>
-            <form action="/facility/list_facility" id="search">
+            <form action="/facility/list_facility" >
                 <td colspan="3">
+                    <div id="search">
                     <input type="text" style="display: inline-block" name="keywordFacility"
                            placeholder="tìm kiếm theo tên">
                     <button type="submit">search</button>
+                    </div>
                 </td>
             </form>
         </tr>
@@ -97,6 +101,7 @@
 <div th:replace="~{layout/fragment::footer}"></div>
 <div th:replace="~{layout/fragment::js}"></div>
 <script>
+
     function deleteModal(id, name) {
         document.getElementById("idRemove").value = id;
         document.getElementById("titleRemove").value = name;
@@ -104,6 +109,7 @@
     function search() {
         document.getElementById("searchForm").submit();
     }
+
 </script>
 <script src="/js/bootstrap.min.js"></script>
 </body>

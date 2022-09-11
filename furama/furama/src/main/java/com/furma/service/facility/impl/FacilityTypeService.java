@@ -1,6 +1,5 @@
 package com.furma.service.facility.impl;
 
-import com.furma.model.facility.Facility;
 import com.furma.model.facility.FacilityType;
 import com.furma.repository.IFacilityTypeRepository;
 import com.furma.service.facility.IFacilityTypeService;
@@ -19,7 +18,6 @@ public class FacilityTypeService implements IFacilityTypeService {
     public List<FacilityType> findAll() {
         return this.facilityTypeRepository.findAll();
     }
-
 
 
 }

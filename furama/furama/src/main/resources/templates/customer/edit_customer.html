@@ -2,39 +2,77 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Chỉnh sửa khách hàng</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
 
-<form action="/customer/create" method="post" th:object="${customer}">
-    <label for="">ID</label>
-    <input type="text" th:field="*{id}" readonly>
-    <label>tên khách hàng</label>
-    <input type="text" th:field="*{name}">
-    <label>ngày sinh</label>
-    <input th:field="*{dateOfBirth}" type="date">
-    <label>giới tính:</label>
-    <input th:field="*{gender}" type="text">
-    <label>cmnd/cccd:</label>
-    <input th:field="*{idCard}" type="text">
-    <label>số điện thoại:</label>
-    <input th:field="*{phoneNumber}" type="text">
-    <label>email:</label>
-    <input th:field="*{email}" type="text">
-    <label>địa chỉ:</label>
-    <input th:field="*{address}" type="text">
-    <label>category:</label>
-    <select name="" id="" th:field="*{customerType}">
-        <option th:each="customerTypes : ${customerTypes}"
-                th:value="${customerTypes.customer_type_id}"
-                th:text="${customerTypes.customer_type_name}"
-        ></option>
-    </select>
-    <p>
-        <button class="btn btn-primary" type="submit">save</button>
-    </p>
-</form>
+
+<h1 class="text-center text-danger mb-3">Thêm mới khách hàng</h1>
+<div class="container-fluid d-flex justify-content-center">
+    <form th:object="${customer}" style="width: 500px" action="/customer/update" method="post">
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example">ID</label>
+            <input type="text" id="form4Example" class="form-control" readonly  th:field="*{id}"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example1">Tên Khách Hàng</label>
+            <input type="text" id="form4Example1" class="form-control" th:field="*{name}"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example2">Ngày sinh</label>
+            <input type="date" id="form4Example2" class="form-control" th:field="*{dateOfBirth}"/>
+        </div>
+
+        <div class=" mb-4">
+            <label class="form-label">Giới tính</label>
+            <select th:field="*{gender}" style="width: 100% ; font-size: 16px ; color:#666666;padding: 7px">
+                <option value="Nam">Nam</option>
+                <option value="Nu">Nữ</option>
+            </select>
+
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example4">CMND/CCCD</label>
+            <input type="text" id="form4Example4" class="form-control" th:field="*{idCard}"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example5">Số điện thoại</label>
+            <input type="text" id="form4Example5" class="form-control" th:field="*{phoneNumber}"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example6">Email</label>
+            <input type="text" id="form4Example6" class="form-control" th:field="*{email}"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="form4Example7">Địa chỉ</label>
+            <input type="text" id="form4Example7" class="form-control" th:field="*{address}"/>
+        </div>
+
+        <div class=" mb-4">
+            <label class="form-label" for="form4Example7">Chọn Loại khách hàng</label>
+                <select th:field="*{customerType}" style="width: 100% ; font-size: 16px ; color:#666666;padding: 7px">
+                    <option th:each="customerTypes : ${customerTypes}"
+                            th:value="${customerTypes.customer_type_id}"
+                            th:text="${customerTypes.customer_type_name}"
+                    ></option>
+                </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mb-4" style="width: 100%">Save</button>
+        <button class="btn btn-secondary" style="width: 100%">Back To List</button>
+    </form>
+</div>
+
+<nav th:replace="~{layout/fragment::footer}"></nav>
+<div th:replace="~{layout/fragment::js}"></div>
+
 
 <script src="/js/bootstrap.min.js"></script>
 </body>

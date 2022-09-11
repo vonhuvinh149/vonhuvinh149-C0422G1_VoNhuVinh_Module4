@@ -1,6 +1,9 @@
 package com.furma.model.facility;
 
+import com.furma.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "dich_vu")
@@ -46,24 +49,24 @@ public class Facility {
     @Column(name = "dich_vu_mien_phi_di_kem")
     private String facilityFree;
 
+    @OneToMany(mappedBy = "facility", cascade = CascadeType.ALL)
+    private List<Contract> contracts;
 
 
-
-
-
-    public Facility(Integer idFacility, String nameFacility, Double area, Double cost, Integer maxPeople, String standardRoom, String description, Double poolArea, Integer numberFloors, String facilityFree, RentType rentType, FacilityType facilityType) {
+    public Facility(Integer idFacility, String nameFacility, Double area, Double cost, Integer maxPeople, RentType rentType, FacilityType facilityType, String standardRoom, String description, Double poolArea, Integer numberFloors, String facilityFree, List<Contract> contracts) {
         this.idFacility = idFacility;
         this.nameFacility = nameFacility;
         this.area = area;
         this.cost = cost;
         this.maxPeople = maxPeople;
+        this.rentType = rentType;
+        this.facilityType = facilityType;
         this.standardRoom = standardRoom;
         this.description = description;
         this.poolArea = poolArea;
         this.numberFloors = numberFloors;
         this.facilityFree = facilityFree;
-        this.rentType = rentType;
-        this.facilityType = facilityType;
+        this.contracts = contracts;
     }
 
     public Facility() {
@@ -109,6 +112,22 @@ public class Facility {
         this.maxPeople = maxPeople;
     }
 
+    public RentType getRentType() {
+        return rentType;
+    }
+
+    public void setRentType(RentType rentType) {
+        this.rentType = rentType;
+    }
+
+    public FacilityType getFacilityType() {
+        return facilityType;
+    }
+
+    public void setFacilityType(FacilityType facilityType) {
+        this.facilityType = facilityType;
+    }
+
     public String getStandardRoom() {
         return standardRoom;
     }
@@ -149,19 +168,11 @@ public class Facility {
         this.facilityFree = facilityFree;
     }
 
-    public RentType getRentType() {
-        return rentType;
+    public List<Contract> getContracts() {
+        return contracts;
     }
 
-    public void setRentType(RentType rentType) {
-        this.rentType = rentType;
-    }
-
-    public FacilityType getFacilityType() {
-        return facilityType;
-    }
-
-    public void setFacilityType(FacilityType facilityType) {
-        this.facilityType = facilityType;
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 }

@@ -22,9 +22,6 @@ public class FacilityService implements IFacilityService {
 
     }
 
-
-
-
     @Override
     public Facility findById(int id) {
         return this.facilityRepository.findById(id).orElse(null);
@@ -38,7 +35,6 @@ public class FacilityService implements IFacilityService {
     @Override
     public void save(Facility facility) {
         this.facilityRepository.save(facility);
-
     }
 
     @Override

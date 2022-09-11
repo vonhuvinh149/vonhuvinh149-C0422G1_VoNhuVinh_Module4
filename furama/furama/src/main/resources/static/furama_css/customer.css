@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-section{
+section {
     position: relative;
 }
 
@@ -27,8 +27,8 @@ table {
     margin: 100px;
 }
 
-table tr {
-    position: relative;
+table a {
+    box-shadow: 2px 1px 10px white;
 }
 
 table tr th {
@@ -70,29 +70,27 @@ b {
 }
 
 #search {
-    margin: 20px auto;
-
+    padding: 20px;
+    font-size: 18px;
 }
 
-#search td input {
-    border-radius: 15px 0 0 15px;
-    outline: none;
+#search input {
     border: none;
-    padding: 5px 10px;
-    font-size: 16px;
-    border-bottom: 4px solid #666666;
-    border-right: 2px solid #666666;
+    outline: none;
+    border-radius: 20px 0 0 20px;
+    padding: 5px 15px;
+    color: #636464;
+    border-top: 2px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
 }
 
 #search button {
-    margin-left: 0;
-    border-radius: 0 15px 15px 0;
-    padding: 5px 5px;
-    outline: none;
     border: none;
-    opacity: .5;
-    font-size: 16px;
-    border-bottom: 4px solid #666666;
-    border-right: 2px solid #666666;
-
+    outline: none;
+    border-radius: 0 20px 20px 0;
+    padding: 5px 15px;
+    color: green;
+    font-weight: bolder;
+    border-top: 3px solid #CCCCCC;
+    border-right: 2px solid #CCCCCC;
 }

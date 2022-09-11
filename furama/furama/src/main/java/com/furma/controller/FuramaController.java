@@ -16,5 +16,8 @@ public class FuramaController {
         return "redirect:/#about";
     }
 
-
+     @GetMapping("/facility")
+    public String facility(){
+        return "redirect:/#facility";
+     }
 }

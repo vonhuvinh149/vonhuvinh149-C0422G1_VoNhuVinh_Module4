@@ -58,9 +58,11 @@ public class CustomerController {
 
     @PostMapping("/create")
 
-    public String save(@ModelAttribute Customer customer) {
+    public String save(@ModelAttribute Customer customer ,RedirectAttributes redirectAttributes) {
 
         this.customeService.save(customer);
+
+        redirectAttributes.addFlashAttribute("msg","thêm mới thành công");
 
         return "redirect:/customer/customer_list";
     }
@@ -76,11 +78,13 @@ public class CustomerController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute Customer customer) {
+    public String update(@ModelAttribute Customer customer,RedirectAttributes redirectAttributes) {
 
         this.customeService.save(customer);
 
-        return "redirect:/";
+        redirectAttributes.addFlashAttribute("msg" ,"sửa thành công");
+
+        return "redirect:/customer/customer_list";
     }
 
     @GetMapping("detail/{id}")

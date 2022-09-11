@@ -64,6 +64,7 @@ public class MainController {
     public String accessDenied(Model model, Principal principal) {
 
         if (principal != null) {
+
             User loginedUser = (User) ((Authentication) principal).getPrincipal();
 
             String userInfo = WebUtils.toString(loginedUser);
