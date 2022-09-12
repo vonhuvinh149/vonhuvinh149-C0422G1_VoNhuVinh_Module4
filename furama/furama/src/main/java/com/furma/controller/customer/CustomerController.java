@@ -4,15 +4,20 @@ import com.furma.model.customer.Customer;
 import com.furma.model.customer.CustomerType;
 import com.furma.service.customer.ICustomeService;
 import com.furma.service.customer.ICustomerTypeService;
+import dto.CustomerDto;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,7 +54,7 @@ public class CustomerController {
     @GetMapping("/add")
     public String add(Model model) {
 
-        model.addAttribute("customer", new Customer());
+        model.addAttribute("customer", new CustomerDto());
         List<CustomerType> customerTypes = this.customerTypeService.findAll();
         model.addAttribute("customerTypesList", customerTypes);
 
@@ -58,11 +63,25 @@ public class CustomerController {
 
     @PostMapping("/create")
 
-    public String save(@ModelAttribute Customer customer ,RedirectAttributes redirectAttributes) {
+    public String save(@ModelAttribute("customer") @Valid CustomerDto customerDto, BindingResult bindingResult,
+                       RedirectAttributes redirectAttributes,
+                       Model model) {
+
+        new CustomerDto().validate(customerDto, bindingResult);
+
+        Customer customer = new Customer();
+
+        if (bindingResult.hasErrors()) {
+            List<CustomerType> customerTypes = this.customerTypeService.findAll();
+            model.addAttribute("customerTypesList", customerTypes);
+            return "/customer/create_customer";
+        }
+
+        BeanUtils.copyProperties(customerDto , customer);
 
         this.customeService.save(customer);
 
-        redirectAttributes.addFlashAttribute("msg","thêm mới thành công");
+        redirectAttributes.addFlashAttribute("msg", "thêm mới thành công");
 
         return "redirect:/customer/customer_list";
     }
@@ -78,17 +97,17 @@ public class CustomerController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute Customer customer,RedirectAttributes redirectAttributes) {
+    public String update(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
 
         this.customeService.save(customer);
 
-        redirectAttributes.addFlashAttribute("msg" ,"sửa thành công");
+        redirectAttributes.addFlashAttribute("msg", "sửa thành công");
 
         return "redirect:/customer/customer_list";
     }
 
     @GetMapping("detail/{id}")
-    public String detail(){
+    public String detail() {
         return "/customer/detail_customer";
     }
 }

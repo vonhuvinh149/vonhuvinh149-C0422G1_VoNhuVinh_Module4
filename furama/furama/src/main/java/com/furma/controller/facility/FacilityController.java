@@ -7,15 +7,19 @@ import com.furma.model.facility.RentType;
 import com.furma.service.facility.IFacilityTypeService;
 import com.furma.service.facility.IRentTypeService;
 import com.furma.service.facility.impl.FacilityService;
+import dto.FacilityDto;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,8 +64,8 @@ public class FacilityController {
     public String create(Model model) {
         List<RentType> rentTypes = this.rentTypeService.findAll();
         List<FacilityType> facilityTypes = this.facilityTypeService.findAll();
-        Facility facility = new Facility();
-        model.addAttribute("facility", facility);
+        FacilityDto facilityDto = new FacilityDto();
+        model.addAttribute("facilityDto", facilityDto);
         model.addAttribute("rentType", rentTypes);
         model.addAttribute("facilityTypes", facilityTypes);
 
@@ -69,10 +73,22 @@ public class FacilityController {
     }
 
     @PostMapping("/create")
-    public String save(RedirectAttributes redirectAttributes, @ModelAttribute Facility facility) {
+    public String save(RedirectAttributes redirectAttributes, @ModelAttribute("facility") @Valid FacilityDto facilityDto , BindingResult bindingResult , Model model) {
+
+        Facility facility = new Facility();
+
+        new FacilityDto().validate(facilityDto , bindingResult);
+
+        if (bindingResult.hasErrors()){
+            return "facility/create_facility";
+        }
+
+        BeanUtils.copyProperties(facilityDto,facility);
 
         this.facilityService.save(facility);
+
         redirectAttributes.addFlashAttribute("msg", "Thêm mới thành công");
+
         return "redirect:/facility/list_facility";
     }
 
