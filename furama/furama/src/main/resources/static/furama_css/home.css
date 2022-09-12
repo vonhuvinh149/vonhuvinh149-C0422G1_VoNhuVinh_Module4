@@ -17,11 +17,6 @@
     background-size: cover;
 }
 
-/*#content_frm{*/
-/*    background-color: #A8A8A8;*/
-/*    opacity: .5;*/
-/*}*/
-
 .banner_frm #content_frm    {
     position: absolute;
     max-width: 900px;
@@ -98,7 +93,6 @@
 .entertainment_card {
     margin:60px auto;
     width: 90%;
-    gap: 40px;
 }
 
 .entertainment_card .card {
@@ -113,5 +107,4 @@
 
 .img_card{
    width: 100%;
-;
 }

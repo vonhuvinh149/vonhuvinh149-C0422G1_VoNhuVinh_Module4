@@ -1,7 +1,7 @@
 package com.furma.service.facility.impl;
 
 import com.furma.model.facility.RentType;
-import com.furma.repository.IRentTypeRepository;
+import com.furma.repository.facility.IRentTypeRepository;
 import com.furma.service.facility.IRentTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

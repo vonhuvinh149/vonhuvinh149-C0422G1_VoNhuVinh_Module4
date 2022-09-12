@@ -1,4 +1,4 @@
-package com.furma.repository;
+package com.furma.repository.customer;
 
 import com.furma.model.customer.Customer;
 import org.springframework.data.domain.Page;

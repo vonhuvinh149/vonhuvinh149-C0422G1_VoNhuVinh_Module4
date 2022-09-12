@@ -6,16 +6,14 @@
     <link rel="stylesheet" href="/furama_css/fragment.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/furama_css/customer.css">
-
 </head>
 <body>
 <nav th:replace="~{layout/fragment::header}"></nav>
-
 <section id="customer_list">
     <table class="table table-striped table-hover">
         <tr>
             <td colspan="2"><a href="/facility/add" class="btn btn-primary  " id="create">Create</a></td>
-            <th colspan="4">Danh Sách khách hàng </th>
+            <th colspan="4">Danh Sách Hợp Đồng</th>
             <form action="/contract/customer_use_facility">
                 <td colspan="3">
                     <div id="search">
@@ -45,65 +43,97 @@
             <td th:text="${contract.deposit}"></td>
             <td th:text="${contract.deposit} + ${contract.facility.cost}"></td>
             <td><a href="" class="btn btn-primary ">+</a>
-                <a href="" class="btn btn-primary ms-3">Danh sách các dịch vụ đi kèm</a>
+                <a href="" class="btn btn-primary ms-3" data-bs-toggle="modal" id="contract"
+                   th:attr="onclick=|getContractDetail(${contract.idContract})|"  data-bs-target="#exampleModal">Danh sách các dịch vụ đi kèm</a>
             </td>
-            <!--            <td><a class="btn btn-danger border-white " data-bs-toggle="modal"-->
-            <!--                   data-bs-target="#exampleModal"-->
-            <!--                   th:attr="onclick=|deleteModal('${facilitys.idFacility}','${facilitys.nameFacility}')|">delete</a>-->
-            <!--            </td>-->
-            <!--            <td><a th:href="@{/facility/edit/{id}(id=${contract.idFacility})}" class="btn btn-primary border-white">Update</a>-->
-            <!--            </td>-->
-            <!--            <td><a href="" class="btn btn-success border-white">Detail</a></td>-->
         </tr>
 
-                <tr>
-                    <td colspan="9" class="text-center">
-                        <div>
-                            <a th:href="@{/contract/customer_use_facility(page = ${contracts.number - 1},
+        <tr>
+            <td colspan="9" class="text-center">
+                <div>
+                    <a th:href="@{/contract/customer_use_facility(page = ${contracts.number - 1},
                                keyword = ${days})}" id="back"
-                               th:if="${contracts.hasPrevious()}">
-                                Previous
-                            </a>
-                            <b><span th:text="${contracts.number + 1}"></span>
-                                /
-                                <span th:text="${contracts.totalPages}"></span></b>
-                            <a th:href="@{/contract/customer_use_facility(page = ${contracts.number + 1},
+                       th:if="${contracts.hasPrevious()}">
+                        Previous
+                    </a>
+                    <b><span th:text="${contracts.number + 1}"></span>
+                        /
+                        <span th:text="${contracts.totalPages}"></span></b>
+                    <a th:href="@{/contract/customer_use_facility(page = ${contracts.number + 1},
                                            keyword = ${days})}" id="next"
-                               th:if="${contracts.hasNext()}">
-                                Next
-                            </a>
-                        </div>
-                    </td>
-                </tr>
+                       th:if="${contracts.hasNext()}">
+                        Next
+                    </a>
+                </div>
+            </td>
+        </tr>
     </table>
 </section>
 
-<form action="/facility/delete" method="post">
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xoá khách hàng</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <input readonly name="id" type="text" id="idRemove">
-                    </p>
-                    <p>
-                        <input readonly type="text" id="titleRemove">
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">delete</button>
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Dách dịch vụ đi kèm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="background: #00CCCC">
+                <table class="table table-hover m-0">
+                    <thead>
+                    <tr>
+                        <td>STT</td>
+                        <td>Số lượng</td>
+                        <td>Dịch vụ đi kèm</td>
+                    </tr>
+                    </thead>
+                    <tbody id="contractDetail">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
-</form>
+</div>
+
 <div th:replace="~{layout/fragment::footer}"></div>
 <div th:replace="~{layout/fragment::js}"></div>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.6.0.min.js"></script>
+
+
+<script>
+
+
+
+    function getContractDetail(id) {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/restContractDetail/list/" + id,
+            success: function (contractDetails) {
+                let htmlStr = '';
+                for (let i = 0; i < contractDetails.length; i++) {
+                    htmlStr += `<tr>
+                        <td>${i + 1}</td>
+                        <td>${contractDetails[i].quantity}</td>
+                        <td>${contractDetails[i].attachFacility.nameAttachFacility}</td>
+                    </tr>`;
+                }
+                $("#contractDetail").html(htmlStr);
+                console.log(htmlStr);
+            },
+            error: function (resultError) {
+
+            }
+        });
+    }
+
+</script>
+
+
 </body>
 </html>

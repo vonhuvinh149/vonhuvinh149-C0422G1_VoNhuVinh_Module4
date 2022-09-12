@@ -1,4 +1,4 @@
-package com.furma.repository;
+package com.furma.repository.facility;
 
 
 import com.furma.model.facility.Facility;

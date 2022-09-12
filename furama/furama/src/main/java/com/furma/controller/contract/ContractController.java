@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Controller
@@ -23,14 +24,14 @@ public class ContractController {
 
     @GetMapping("/customer_use_facility")
     public String customerUserFacility(@PageableDefault(size = 2) Pageable pageable,
-                                       @RequestParam Optional<String> nameCustomer, Model model,@RequestParam (defaultValue = "") String day) {
+                                       @RequestParam Optional<String> nameCustomer, Model model) {
 
-       String nameCustomers = nameCustomer.orElse("");
+        String nameCustomers = nameCustomer.orElse("");
+        String day = String.valueOf(LocalDate.now());
         Page<Contract> contracts = this.contractService.findAllByEndDateGreaterThanAndCustomer_NameContaining(day,nameCustomers,pageable);
         model.addAttribute("contracts",contracts);
         model.addAttribute("days",day);
 
         return "/contract/customer_use_facility";
     }
-
 }

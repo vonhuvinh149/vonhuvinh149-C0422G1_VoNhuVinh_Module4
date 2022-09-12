@@ -1,7 +1,7 @@
 package com.furma.service.customer.impl;
 
 import com.furma.model.customer.Customer;
-import com.furma.repository.ICustomerRepository;
+import com.furma.repository.customer.ICustomerRepository;
 import com.furma.service.customer.ICustomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

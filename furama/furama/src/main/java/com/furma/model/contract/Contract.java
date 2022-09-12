@@ -1,5 +1,6 @@
 package com.furma.model.contract;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.furma.model.customer.Customer;
 import com.furma.model.employee.Employee;
 import com.furma.model.facility.Facility;
@@ -33,6 +34,7 @@ public class Contract {
     @JoinColumn(name = "ma_dich_vu")
     private Facility facility ;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "ma_nhan_vien")
     private Employee employee ;

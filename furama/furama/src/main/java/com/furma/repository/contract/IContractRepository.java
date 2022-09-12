@@ -1,4 +1,4 @@
-package com.furma.repository;
+package com.furma.repository.contract;
 
 import com.furma.model.contract.Contract;
 import org.springframework.data.domain.Page;

@@ -1,5 +1,7 @@
 package com.furma.model.contract;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,8 +22,9 @@ public class AttachFacility {
     @Column(name = "trang_thai")
     private String status;
 
-    @OneToMany(mappedBy = "attachFacility",cascade = CascadeType.ALL)
-    List<ContractDetail> contractDetails;
+    @OneToMany(mappedBy = "attachFacility", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<ContractDetail> contractDetails;
 
     public AttachFacility(Integer idAttachFacility, String nameAttachFacility, Double cost, String unit, String status, List<ContractDetail> contractDetails) {
         this.idAttachFacility = idAttachFacility;

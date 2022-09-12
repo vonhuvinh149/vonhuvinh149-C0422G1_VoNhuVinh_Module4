@@ -1,4 +1,4 @@
-package com.furma.repository;
+package com.furma.repository.employee;
 
 public interface IEmployeeRepository {
 }

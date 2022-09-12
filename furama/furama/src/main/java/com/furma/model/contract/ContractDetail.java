@@ -1,6 +1,8 @@
 package com.furma.model.contract;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class ContractDetail {
     @Column(name = "so_luong")
     private String quantity;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "ma_hop_dong" ,referencedColumnName = "ma_hop_dong")
     private Contract contract;

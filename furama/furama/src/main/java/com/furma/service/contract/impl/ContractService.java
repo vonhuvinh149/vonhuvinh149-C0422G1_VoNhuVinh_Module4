@@ -1,7 +1,7 @@
 package com.furma.service.contract.impl;
 
 import com.furma.model.contract.Contract;
-import com.furma.repository.IContractRepository;
+import com.furma.repository.contract.IContractRepository;
 import com.furma.service.contract.IContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
