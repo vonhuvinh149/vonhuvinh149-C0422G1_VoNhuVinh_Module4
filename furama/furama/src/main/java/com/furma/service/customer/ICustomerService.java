@@ -4,7 +4,7 @@ import com.furma.model.customer.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface ICustomeService {
+public interface ICustomerService {
 
     Page<Customer> findAll(Pageable pageable);
 

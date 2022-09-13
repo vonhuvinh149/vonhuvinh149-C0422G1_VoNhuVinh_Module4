@@ -16,7 +16,6 @@
     <div class="row d-flex justify-content-center ">
         <form th:object="${facilityDto}" style="width: 550px" th:action="@{/facility/create}" method="post">
 
-            <div th:errors="*{facilityType}" class="text-danger"></div>
             <div class="mb-4 text-white">
                 <label class="form-label" for="type_facility">Tên dịch vụ</label>
                 <select name="" th:field="*{facilityType}" id="type_facility"

@@ -41,10 +41,11 @@
             <td th:text="${contract.startDate}"></td>
             <td th:text="${contract.endDate}"></td>
             <td th:text="${contract.deposit}"></td>
-            <td th:text="${contract.deposit} + ${contract.facility.cost}"></td>
-            <td><a href="" class="btn btn-primary ">+</a>
+            <td th:text="${contract.totalMoney}"></td>
+            <td><a href="" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#createContract">+</a>
                 <a href="" class="btn btn-primary ms-3" data-bs-toggle="modal" id="contract"
-                   th:attr="onclick=|getContractDetail(${contract.idContract})|"  data-bs-target="#exampleModal">Danh sách các dịch vụ đi kèm</a>
+                   th:attr="onclick=|getContractDetail(${contract.idContract})|" data-bs-target="#exampleModal">Danh
+                    sách các dịch vụ đi kèm</a>
             </td>
         </tr>
 
@@ -95,6 +96,54 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="createContract" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabels">Thêm mới hợp đông</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/contract" th:object="${contractModel}">
+                    <div >
+                        <label for="startDate">Ngày bắt đàu</label>
+                        <input type="date" th:field="*{startDate}" id="startDate">
+                    </div>
+                    <div >
+                        <label for="endDate">Ngày kết thúc</label>
+                        <input type="date" th:field="*{endDate}" id="endDate">
+                    </div>
+                    <div >
+                        <label for="deposit">Tiền gửi</label>
+                        <input type="text" th:field="*{deposit}" id="deposit">
+                    </div>
+                    <div >
+                        <label for="totalMoney">Tổng tiền</label>
+                        <input type="text" th:field="*{totalMoney}" disabled id="totalMoney">
+                    </div>
+                    <div>
+                        <label>Khách hàng</label>
+                        <select th:field="*{customer}">
+                            <option  th:each="customers : ${customer}" th:text="${customers.name}" th:value="${customers.id}"></option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Dịch vụ</label>
+                        <select th:field="*{facility}">
+                            <option  th:each="facilitys : ${facilities}" th:text="${facilitys.nameFacility}" th:value="${facilitys.idFacility}"></option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" name="/add" value="" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

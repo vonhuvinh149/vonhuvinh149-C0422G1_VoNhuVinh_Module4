@@ -7,7 +7,7 @@ import com.furma.model.facility.RentType;
 import com.furma.service.facility.IFacilityTypeService;
 import com.furma.service.facility.IRentTypeService;
 import com.furma.service.facility.impl.FacilityService;
-import dto.FacilityDto;
+import com.furma.dto.FacilityDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -62,24 +62,30 @@ public class FacilityController {
 
     @GetMapping("/add")
     public String create(Model model) {
+        FacilityDto facilityDto = new FacilityDto();
         List<RentType> rentTypes = this.rentTypeService.findAll();
         List<FacilityType> facilityTypes = this.facilityTypeService.findAll();
-        FacilityDto facilityDto = new FacilityDto();
-        model.addAttribute("facilityDto", facilityDto);
+
         model.addAttribute("rentType", rentTypes);
         model.addAttribute("facilityTypes", facilityTypes);
+        model.addAttribute("facilityDto", facilityDto);
 
         return "facility/create_facility";
     }
 
     @PostMapping("/create")
-    public String save(RedirectAttributes redirectAttributes, @ModelAttribute("facility") @Valid FacilityDto facilityDto , BindingResult bindingResult , Model model) {
+    public String save(RedirectAttributes redirectAttributes, @ModelAttribute @Valid FacilityDto facilityDto , BindingResult bindingResult , Model model) {
 
         Facility facility = new Facility();
 
         new FacilityDto().validate(facilityDto , bindingResult);
 
         if (bindingResult.hasErrors()){
+            List<RentType> rentTypes = this.rentTypeService.findAll();
+            List<FacilityType> facilityTypes = this.facilityTypeService.findAll();
+
+            model.addAttribute("rentType", rentTypes);
+            model.addAttribute("facilityTypes", facilityTypes);
             return "facility/create_facility";
         }
 
@@ -113,6 +119,15 @@ public class FacilityController {
         redirectAttributes.addFlashAttribute("msg", "update thành công");
 
         return "redirect:/facility/list_facility";
+    }
+
+    @GetMapping("detail/{id}")
+    public String detail(@PathVariable Integer id , Model model){
+
+        Facility facility = this.facilityService.findById(id);
+        model.addAttribute("facility",facility);
+
+        return "/facility/detail_facility";
     }
 
 }

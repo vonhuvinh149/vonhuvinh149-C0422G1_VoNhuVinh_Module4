@@ -14,7 +14,7 @@ public class ContractDetail {
     @Column(name = "ma_hop_dong_chi_tiet")
     private Integer idContract;
     @Column(name = "so_luong")
-    private String quantity;
+    private Integer quantity;
 
     @JsonBackReference
     @ManyToOne
@@ -25,7 +25,7 @@ public class ContractDetail {
     @JoinColumn(name = "ma_dich_vu_di_kem")
     private AttachFacility attachFacility;
 
-    public ContractDetail(Integer idContract, String quantity, Contract contract, AttachFacility attachFacility) {
+    public ContractDetail(Integer idContract, Integer quantity, Contract contract, AttachFacility attachFacility) {
         this.idContract = idContract;
         this.quantity = quantity;
         this.contract = contract;
@@ -43,11 +43,11 @@ public class ContractDetail {
         this.idContract = idContract;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

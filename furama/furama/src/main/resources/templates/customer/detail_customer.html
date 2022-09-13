@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<h2>Thông tin chi tiết</h2>
+<div>Tên Khách Hàng: <span th:text="${customer.name}"></span></div>
+<div>Loại Khách Hàng: <span th:text="${customer.customerType.customer_type_name}"></span></div>
+<div>Ngày sinh: <span th:text="${customer.dateOfBirth}"></span></div>
+<div>Giới tính: <span th:text="${customer.gender}"></span></div>
+<div>CMND/CCCD: <span th:text="${customer.idCard}"></span></div>
+<div>Số điện thoại: <span th:text="${customer.phoneNumber}"></span></div>
+<div>Email: <span th:text="${customer.email}"></span></div>
+<div>Địa chỉ: <span th:text="${customer.address}"></span></div>
 </body>
 </html>

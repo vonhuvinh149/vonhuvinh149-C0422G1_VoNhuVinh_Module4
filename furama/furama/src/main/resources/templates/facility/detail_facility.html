@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Thông tin chi tiết</h2>
+<div>Tên dịch vụ: <span th:text="${facility.nameFacility}"></span></div>
+<div>Diện tích: <span th:text="${facility.area}"></span></div>
+<div>Chi phí: <span th:text="${facility.cost}"></span></div>
+<div>Số người tối đa: <span th:text="${facility.maxPeople}"></span></div>
+<div>Kiểu thuê: <span th:text="${facility.rentType.nameRentType}"></span></div>
+<div>Kiểu loại dịch vụ: <span th:text="${facility.facilityType.nameFacilityType}"></span></div>
+<div>Tiêu chuẩn phòng: <span th:text="${facility.standardRoom}"></span></div>
+<div>Mô tả: <span th:text="${facility.description}"></span></div>
+<div>Diện tích hồ bơi: <span th:text="${facility.poolArea}"></span></div>
+<div>Số tầng: <span th:text="${facility.numberFloors}"></span></div>
+<div>Dịch vụ miễn phí đi kèm: <span th:text="${facility.facilityFree}"></span></div>
+</body>
+</html>

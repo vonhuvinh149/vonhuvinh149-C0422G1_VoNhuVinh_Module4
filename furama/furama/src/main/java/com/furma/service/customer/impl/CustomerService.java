@@ -2,14 +2,14 @@ package com.furma.service.customer.impl;
 
 import com.furma.model.customer.Customer;
 import com.furma.repository.customer.ICustomerRepository;
-import com.furma.service.customer.ICustomeService;
+import com.furma.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerService implements ICustomeService {
+public class CustomerService implements ICustomerService {
 
     @Autowired
     private ICustomerRepository furamaRepository;

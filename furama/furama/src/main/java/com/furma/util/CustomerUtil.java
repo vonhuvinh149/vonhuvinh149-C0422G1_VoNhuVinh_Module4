@@ -1,6 +1,6 @@
 package com.furma.util;
 
-import dto.CustomerDto;
+import com.furma.dto.CustomerDto;
 import org.springframework.validation.Errors;
 
 import java.time.LocalDate;
@@ -14,7 +14,7 @@ public class CustomerUtil {
         if (!(customerDto.getName() == null || customerDto.getName().trim().equals(""))) {
             if (!customerDto.getName().matches("^[A-ZĐ][a-zỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâ]+" +
                     "( [A-ZĐ][a-zỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâ]*)*$")) {
-                errors.rejectValue("name", "name.err", "Please input right format!!! ex: Võ Như Vinh");
+                errors.rejectValue("name", "name.err", "Nhập đúng dịnh dạng!!! ex: Võ Như Vinh");
             }
         }
     }

@@ -1,4 +1,4 @@
-package dto;
+package com.furma.dto;
 
 import com.furma.model.customer.CustomerType;
 import com.furma.util.CustomerUtil;

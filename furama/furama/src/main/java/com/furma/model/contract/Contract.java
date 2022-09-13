@@ -23,8 +23,10 @@ public class Contract {
     @Column(name = "tien_dat_coc")
     private Double deposit;
 
+    private transient Double totalMoney;
+
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
-    List<ContractDetail> contractDetails;
+    private List<ContractDetail> contractDetails;
 
     @ManyToOne
     @JoinColumn(name = "ma_khach_hang")
@@ -39,17 +41,35 @@ public class Contract {
     @JoinColumn(name = "ma_nhan_vien")
     private Employee employee ;
 
-    public Contract(Integer idContract, String startDate, String endDate, Double deposit, List<ContractDetail> contractDetails, Customer customer, Facility facility) {
+    public Contract(Integer idContract, String startDate, String endDate, Double deposit, Double totalMoney, List<ContractDetail> contractDetails, Customer customer, Facility facility, Employee employee) {
         this.idContract = idContract;
         this.startDate = startDate;
         this.endDate = endDate;
         this.deposit = deposit;
+        this.totalMoney = totalMoney;
         this.contractDetails = contractDetails;
         this.customer = customer;
         this.facility = facility;
+        this.employee = employee;
     }
 
     public Contract() {
+    }
+
+    public Double getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(Double totalMoney) {
+        this.totalMoney = totalMoney;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public Integer getIdContract() {
@@ -107,4 +127,6 @@ public class Contract {
     public void setFacility(Facility facility) {
         this.facility = facility;
     }
+
+
 }

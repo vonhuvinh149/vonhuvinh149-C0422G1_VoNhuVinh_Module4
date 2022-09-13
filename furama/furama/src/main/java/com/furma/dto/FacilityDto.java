@@ -1,4 +1,4 @@
-package dto;
+package com.furma.dto;
 
 import com.furma.model.facility.FacilityType;
 import com.furma.model.facility.RentType;
@@ -54,8 +54,8 @@ public class FacilityDto implements Validator {
     public void validate(Object target, Errors errors) {
         FacilityDto facilityDto = (FacilityDto) target;
         FacilityUtil.checkName(facilityDto, errors);
-        FacilityUtil.checkDouble(facilityDto, errors);
     }
+
 
     public String getNameFacility() {
         return nameFacility;

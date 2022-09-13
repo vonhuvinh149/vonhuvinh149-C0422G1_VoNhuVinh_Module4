@@ -2,12 +2,11 @@ package com.furma.controller.customer;
 
 import com.furma.model.customer.Customer;
 import com.furma.model.customer.CustomerType;
-import com.furma.service.customer.ICustomeService;
+import com.furma.service.customer.ICustomerService;
 import com.furma.service.customer.ICustomerTypeService;
-import dto.CustomerDto;
+import com.furma.dto.CustomerDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -26,7 +25,7 @@ import java.util.Optional;
 public class CustomerController {
 
     @Autowired
-    private ICustomeService customeService;
+    private ICustomerService customeService;
 
     @Autowired
     private ICustomerTypeService customerTypeService;
@@ -107,7 +106,11 @@ public class CustomerController {
     }
 
     @GetMapping("detail/{id}")
-    public String detail() {
+    public String detail(@PathVariable Integer id,Model model ) {
+
+        Customer customer = this.customeService.findById(id);
+        model.addAttribute("customer",customer);
+
         return "/customer/detail_customer";
     }
 }
